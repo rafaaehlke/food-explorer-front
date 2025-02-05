@@ -13,8 +13,9 @@ export const Container = styled.button`
   border-radius: 5px;
   font-weight: 500; 
   font-family: 'Popins', sans-serif;
-
+  
   &:disabled {
     opacity: 0.5;
   }
+
 `

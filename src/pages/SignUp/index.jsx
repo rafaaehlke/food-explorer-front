@@ -9,14 +9,22 @@ export function SignUp() {
   return (
     <Container>
 
-      <img className="Logo" src={Logo} alt="Logo food explorer" title="Logo food explorer" />
-      <h1>food explorer</h1>
+      <section>
+        <img className="Logo" src={Logo} alt="Logo food explorer" title="Logo food explorer" />
+        <h1>food explorer</h1>
+      </section>
 
-      <Form action="">
+      <Form>
+        <span>Seu nome</span>
+        <Input placeholder="Exemplo: Rocketseat"></Input>
+        <span>Email</span>
+        <Input placeholder="Exemplo: rocketseat@email.com"></Input>
+        <span>Senha</span>
+        <Input placeholder="Mínimo 6 caracteres"></Input>
 
-        {/* input travando a aplicaçao */}
-        <Input placeholder="TESTE"></Input>
-        <Button title="Criar Conta" />
+        <Button id="" title="Criar Conta" />
+        <Button id="haveAccount" title="Já tenho uma conta" />
+
       </Form>
 
     </Container>
