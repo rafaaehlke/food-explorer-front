@@ -1,15 +1,24 @@
-import { Container } from "./styles"
+import Logo from "../../assets/logo.svg"
+import { Container, Form } from "./styles"
+import { Input } from "../../components/Input"
+
 import { Button } from "../../components/Button"
-import { Logo } from "../../components/Logo"
 
 
 export function SignUp() {
   return (
     <Container>
 
-      <Logo />
+      <img className="Logo" src={Logo} alt="Logo food explorer" title="Logo food explorer" />
       <h1>food explorer</h1>
-      <Button title="Criar Conta" />
+
+      <Form action="">
+
+        {/* input travando a aplicaçao */}
+        <Input placeholder="TESTE"></Input>
+        <Button title="Criar Conta" />
+      </Form>
+
     </Container>
   )
 }
