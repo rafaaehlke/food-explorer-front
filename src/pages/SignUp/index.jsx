@@ -15,11 +15,11 @@ export function SignUp() {
       </section>
 
       <Form>
-        <div id="createAccount">
+        <div id="titleForm">
           <h1>Crie sua conta</h1>
         </div>
         <span>Seu nome</span>
-        <Input placeholder="Exemplo: Rocketseat"></Input>
+        <Input placeholder="Exemplo: Rocktseat"></Input>
         <span>Email</span>
         <Input placeholder="Exemplo: rocketseat@email.com"></Input>
         <span>Senha</span>

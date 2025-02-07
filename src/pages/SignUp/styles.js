@@ -17,7 +17,7 @@ export const Container = styled.div`
     padding-top: 158px;
   }
   
-  h1 {
+  section > h1 {
     font-size: 38px;
     font-weight: bold;
   }
@@ -41,8 +41,6 @@ export const Container = styled.div`
         border: 1px solid purple;
         text-align: end;
       }
-
-     
     }
   
   `
@@ -54,7 +52,7 @@ export const Form = styled.div`
   margin-left: 64px;
   margin-right: 47px; 
 
-  #createAccount {
+  #titleForm {
     display: none;
   }
 
@@ -72,7 +70,7 @@ export const Form = styled.div`
      margin: 90px 108px 112px auto;
      border-radius: 16px;
 
-     #createAccount {
+     #titleForm {
       display: block;
       width: 348px;
       margin: 64px;
