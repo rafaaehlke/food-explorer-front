@@ -13,6 +13,10 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
+  :root {
+    font-size: 16px;
+  }
+
   body, input, button, textarea {
     font-family: "Roboto", serif;
     font-size: 16px;
