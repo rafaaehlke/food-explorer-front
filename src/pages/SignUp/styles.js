@@ -12,20 +12,20 @@ export const Container = styled.div`
   section {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 12px;
-    padding-top: 158px;
+    align-items: center;
+    gap: 1.4rem;
+    padding-top: 9.8rem;
   }
   
   section > h1 {
-    font-size: 38px;
+    font-size: 2.4rem;
     font-weight: bold;
   }
   
   span {
     font-weight: 400;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
-    padding-bottom: 8px;
+    padding-bottom: .6rem;
   }
 
     @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
@@ -38,8 +38,12 @@ export const Container = styled.div`
       "title form";
       
       section {
-        border: 1px solid purple;
-        text-align: end;
+        padding: 0;
+      }
+
+      section > h1 {
+        font-size: 3rem;
+        font-weight: bold;
       }
     }
   
@@ -48,9 +52,9 @@ export const Container = styled.div`
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 73px;
-  margin-left: 64px;
-  margin-right: 47px; 
+  margin-top: 4.6rem;
+  margin-left: 4rem;
+  margin-right: 2.8rem; 
 
   #titleForm {
     display: none;
@@ -60,27 +64,38 @@ export const Form = styled.div`
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS_LIGHT_100};
     font-family: "Poppins", sans-serif;
-    font-size: 14px;
+    font-size: .8rem;
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
      
      background-color: ${({ theme }) => theme.COLORS.DARK_700};
-     padding: 64px;
-     margin: 90px 108px 112px auto;
-     border-radius: 16px;
+     padding: 4rem;
+     margin: 5.6rem 6.8rem 7rem auto;
+     border-radius: 1rem;
 
      #titleForm {
       display: block;
       width: 348px;
-      margin: 64px;
+      margin: 4rem;
       text-align: center;
     }
     
     h1 {
       font-family: Poppins;
-      font-size: 32px;
+      font-size: 2rem;
       font-weight: 500;
      }
   }
+
+    // Ipad screen
+  @media screen and (min-width: 820px) and (max-width: 820px)  {
+    display: flex;
+    min-width: 100%;
+
+    #titleForm > h1 {
+    display: flex;
+    }
+  }
+
 `
