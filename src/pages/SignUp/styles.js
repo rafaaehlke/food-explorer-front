@@ -68,7 +68,6 @@ export const Form = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-     
      background-color: ${({ theme }) => theme.COLORS.DARK_700};
      padding: 4rem;
      margin: 5.6rem 6.8rem 7rem auto;
@@ -77,7 +76,8 @@ export const Form = styled.div`
      #titleForm {
       display: block;
       width: 348px;
-      margin: 4rem;
+      margin: 0rem 4rem;
+      padding-bottom: 2rem;
       text-align: center;
     }
     
