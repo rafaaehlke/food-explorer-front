@@ -12,23 +12,27 @@ export const Container = styled.div`
   section {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 12px;
-    padding-top: 158px;
+    align-items: center;
+    gap: 1.2rem;
+    padding-top: 9.8rem;
   }
   
   h1 {
-    font-size: 38px;
+    font-size: 2.4rem;
     font-weight: bold;
+  }
+
+  #titleForm {
+    display: none;
   }
   
   span {
     font-weight: 400;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
-    padding-bottom: 8px;
+    padding-bottom: .8rem;
   }
 
-    @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+     @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
      
       display: grid;
       grid-template-rows: repeat(2, auto);
@@ -38,10 +42,9 @@ export const Container = styled.div`
       "title form";
       
       section {
-        border: 1px solid purple;
-        text-align: end;
+        grid-area: title;
+        padding-top: 0
       }
-
      
     }
   
@@ -50,9 +53,9 @@ export const Container = styled.div`
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 73px;
-  margin-left: 64px;
-  margin-right: 47px; 
+  margin-top: 4.6rem;
+  margin-left: 4rem;
+  margin-right: 2.8rem; 
 
 
   
@@ -63,15 +66,26 @@ export const Form = styled.div`
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
      
-     background-color: ${({ theme }) => theme.COLORS.DARK_700};
-     padding: 64px;
-     margin: 90px 108px 112px auto;
-     border-radius: 16px;
+    background-color: ${({ theme }) => theme.COLORS.DARK_700};
+    border-radius: 1rem;
+    
+    margin-top: 8.8rem;
+    margin-right: 6.8rem;
+    
+    padding-left: 4rem;
+    padding-right:4rem;
+    padding-bottom: 4rem;
 
      #titleForm {
+      display: block;
       width: 348px;
-      margin: 64px;
+      margin: 4rem 4rem 2rem 4rem;
       text-align: center;
+    }
+
+    #signIn {
+      border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_400};
+      border-radius: 5px;
     }
     
     h1 {
@@ -80,4 +94,16 @@ export const Form = styled.div`
       font-weight: 500;
      }
   }
+
+  // Ipad screen
+  @media screen and (min-width: 820px) and (max-width: 820px)  {
+    display: flex;
+    min-width: 100%;
+
+    #titleForm {
+    display: flex;
+    }
+  }
+
+ 
 `

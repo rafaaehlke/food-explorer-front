@@ -19,9 +19,9 @@ export function SignIn() {
           <h1>Faça o Login</h1>
         </div>
         <span>Email</span>
-        <Input placeholder="Exemplo: rocktseat@email.com"></Input>
+        <Input id="signIn" placeholder="Exemplo: rocktseat@email.com"></Input>
         <span>Senha</span>
-        <Input placeholder="Mínimo 6 caracteres"></Input>
+        <Input id="signIn" placeholder="Mínimo 6 caracteres"></Input>
 
         <Button id="Login" title="Entrar" />
         <Button id="createAccount" title="Criar uma conta" />
