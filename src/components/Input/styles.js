@@ -13,10 +13,10 @@ export const Container = styled.div`
   
   > input {
     height: 3rem;
-    width: 100%;
+    min-width: 100%;
     
     border: 0;
-    padding: 0.75rem 0.875rem; 
+    padding: 0.75rem 0.87rem; 
     
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     background: transparent;
@@ -24,5 +24,11 @@ export const Container = styled.div`
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_600};
     }
+
+    
+  }
+
+  > svg {
+    margin: 0 16px;
   }
 `;
