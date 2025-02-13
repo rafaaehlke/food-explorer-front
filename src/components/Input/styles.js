@@ -23,6 +23,7 @@ export const Container = styled.div`
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_600};
+      text-align: center;
     }
 
     
