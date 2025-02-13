@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.nav`
   display: flex;
   align-items: center;
-  height: 4.8rem;
+  height: 7.13rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
   aside {
