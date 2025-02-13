@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   margin-bottom: 2rem; 
@@ -13,7 +12,7 @@ export const Container = styled.div`
   
   > input {
     height: 3rem;
-    min-width: 100%;
+    width: 100%;
     
     border: 0;
     padding: 0.75rem 0.87rem; 
@@ -23,13 +22,14 @@ export const Container = styled.div`
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_600};
-      text-align: center;
+      text-align: start;
     }
-
     
   }
 
   > svg {
-    margin: 0 16px;
+   width: 1.5rem;
+   height: 1.5rem;
+   margin-left: 6.21rem;
   }
 `;
