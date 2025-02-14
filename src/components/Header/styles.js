@@ -7,8 +7,8 @@ export const Container = styled.nav`
   height: 7.13rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   
-  // main
-  aside {
+// main
+aside {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -20,7 +20,7 @@ export const Container = styled.nav`
     //margin: 3.4rem 1.74rem 1.5rem 1.74rem;
   }
 
-  // Logo central
+// Logo central
 .nameRestaurant {
   display: flex;
   align-items: center;
@@ -41,65 +41,87 @@ export const Container = styled.nav`
   }
 }
 
-  // Button esquerda
-  #list {
-    background-color: transparent;
-    border: none;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+// Button esquerda
+#list {
+  background-color: transparent;
+  border: none;
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+}
+
+// Input
+.search {
+  display: none;
+}
+
+  
+.requestsButton{
+  background-color: transparent;
+  border: 0;
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+}
+
+.requests {
+  display: none;
+}
+
+
+.exit {
+  display: none;
+}
+
+@media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+// main
+aside {
+  width: 85.5rem;
+  height: 3rem;
+  margin: 1.5rem 7.68rem;
+}
+
+//Logo
+.nameRestaurant {
+  img {
+    width: 1.87rem;
+    height: 1.87rem;
+    margin-left: .62rem;
   }
 
-  // Button Direita
-  #received {
-    background-color: transparent;
-    border: none;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  p {
+    width: 9.12rem;
   }
+}
 
-  // Input
-  .search {
-    display: none;
-  }
+// Input
+.search {
+  display: block;
+  width: 100%;
+  margin-right: 2rem;
+} 
 
-  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.requestsButton {
+  display: none;
+}
 
-    aside {
-      width: 85.5rem;
-      height: 3rem;
-      margin: 1.5rem 7.68rem;
-    }
+//Button
+.requests {
+  display: flex;
+  background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+  width: 13.5rem;
+  margin-right: 2rem;
+  font-size: .87rem;
+  line-height: 1.5rem;
+}
 
-    .nameRestaurant {
-      img {
-        width: 1.87rem;
-        height: 1.87rem;
-        margin-left: .62rem;
-      }
-
-      p {
-        width: 9.12rem;
-      }
-    }
-
-    .search {
-      display: block;
-      width: 100%;
-      margin-right: 2rem;
-    } 
-
-     .received {
-     display: flex;
-     align-items: center;
-     flex-direction: row;
-     }
-
-     #requests {
-     width: 13.5rem;
-     font-family: 'Poppins', sans-serif;
-     font-size: .87rem;
-     font-weight: 400;
-     }
-  }
+// Button
+.exit {
+  display: flex;
+  width: 2rem;
+  padding: 0;
+  margin: 0 auto;
+  background-color: transparent;
+ }
+}
 `
