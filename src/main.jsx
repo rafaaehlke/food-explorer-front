@@ -4,15 +4,14 @@ import { ThemeProvider } from 'styled-components'
 import theme from './styles/theme'
 import GlobalStyles from './styles/global'
 
-import {Header} from './components/Header'
-import { Footer } from './components/Footer'
-import { SignUp } from './pages/SignUp'
+
+import { Home } from './pages/Home'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-     <Header />
+     <Home />
     </ThemeProvider>
   </StrictMode>,
 )
