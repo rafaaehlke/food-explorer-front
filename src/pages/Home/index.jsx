@@ -18,7 +18,7 @@ export function Home() {
       <section className="flyer">
         <img src={Principal} alt="" />
         <p>Sabores inigualáveis</p>
-        <span>Sinta o cuidado do preparo com ingredientes selecionados</span>
+        <span>Sinta o cuidado do preparo com ingredientes selecionados.</span>
       </section>
 
       <section className="meals">
