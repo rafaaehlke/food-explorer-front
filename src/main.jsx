@@ -5,13 +5,13 @@ import theme from './styles/theme'
 import GlobalStyles from './styles/global'
 
 
-import { Home } from './pages/Home'
+import { SignUp } from './pages/SignUp'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-     <Home />
+     <SignUp />
     </ThemeProvider>
   </StrictMode>,
 )

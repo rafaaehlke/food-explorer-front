@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const Container = styled.nav`
   display: flex;
   align-items: center;
-  height: 7.13rem;
+  height: 11.4rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
   aside {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-    margin: 3.5rem 1.75rem;
+    gap: 1.6rem;
+    margin: 5.6rem 2.8rem;
   }
 
   button {
@@ -20,7 +20,7 @@ export const Container = styled.nav`
   }
 
   h1 {
-    font-size: 1.4rem;
+    font-size: 2.2rem;
     font-weight: 400;
   }
 

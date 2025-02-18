@@ -3,19 +3,19 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 2rem; 
+  margin-bottom: 3.2rem; 
   
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
   
-  border-radius: 0.5rem; 
+  border-radius: 0.8rem; 
   
   
   > input {
-    height: 3rem;
+    height: 4.8rem;
     width: 100%;
     
     border: 0;
-    padding: 0.75rem 0.87rem; 
+    padding: 1.2rem 1.4rem; 
     
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     background: transparent;
@@ -28,8 +28,9 @@ export const Container = styled.div`
   }
 
   > svg {
-   width: 1.5rem;
-   height: 1.5rem;
-   margin-left: 6.21rem;
+   width: 2.4rem;
+   height: 2.4rem;
+   margin-left: 10rem;
+   margin-right: 1.4rem;
   }
 `;

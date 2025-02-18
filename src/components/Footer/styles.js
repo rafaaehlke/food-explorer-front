@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreackPoints"
 
 export const Container = styled.nav`
-  min-height: 4.8rem;
+  min-height: 7.7rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   display: flex;
   flex-direction: row;
@@ -10,33 +10,38 @@ export const Container = styled.nav`
 
 
 .Logo {
-  width: 1.37rem; 
-  height: 1.12rem;
-  padding-left: 0.4rem;
+  width: 2.2rem; 
+  height: 1.8rem;
+ 
 }
 
-section, logo {
-  width: 9rem;
+section {
+ 
+  width: 11.4rem;
+  padding-left: 2.77rem;
 }
 
 h1 {
-  padding-left: 0.62rem; 
-  padding-right: 0.5rem;   color: ${({ theme }) => theme.COLORS.LIGHT_700};
+  min-width: 11.4rem;
+  padding-left: .64rem; 
+  padding-right: .8rem;   
+  color: ${({ theme }) => theme.COLORS.LIGHT_700};
 }
 
 section, aside {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 1.5rem auto; 
-  font-size: 0.75rem; 
+  margin: 2.4rem auto; 
+  font-size: 1.2rem; 
 }
 
 aside{
-  width: 13.87rem;
+  width: 22.2rem;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   font-weight: 400;
+  padding-left: 0.8rem;
   color: ${({ theme }) => theme.COLORS.LIGHT_200};  
 }
 
@@ -46,18 +51,18 @@ aside{
   section {
     display: flex;
     align-items: center;
-    width: 42.87rem;
-    margin-left: 4rem;
-    margin-top: 1.5rem;
+    width: 68.48rem;
+    margin-left: 6.4rem;
+    margin-top: 2.4rem;
   }
 
   .Logo {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2.88rem;
+    height: 2.88rem;
   }
 
   section > h1 {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     font-weight: bold;
   }
 
@@ -66,7 +71,7 @@ aside{
   }
 
   aside > span {
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     text-align: center;
     white-space: nowrap;
   }

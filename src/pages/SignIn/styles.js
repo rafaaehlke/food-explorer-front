@@ -13,12 +13,13 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem;
-    padding-top: 9.8rem;
+    gap: 2.0rem;
+    padding-top: 15.7rem;
   }
   
   h1 {
-    font-size: 2.4rem;
+    font-size: 3.8rem;
+    line-height: 4.4rem;
     font-weight: bold;
   }
 
@@ -53,11 +54,15 @@ export const Container = styled.div`
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 4.6rem;
-  margin-left: 4rem;
-  margin-right: 2.8rem; 
+  margin-top: 7.3rem;
+  margin-left: 6.5rem;
+  margin-right: 4.7rem; 
 
-
+  #Login {
+    background-color: ${({theme}) => theme.COLORS.TOMATO_100};
+    display: flex;
+    justify-content: center;
+  }
   
   #createAccount {
    border: transparent;
@@ -67,30 +72,30 @@ export const Form = styled.div`
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
      
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
-    border-radius: 1rem;
+    border-radius: 1.6rem;
     
-    margin-top: 8.8rem;
-    margin-right: 6.8rem;
+    margin-top: 14.2rem;
+    margin-right: 10.8rem;
     
-    padding-left: 4rem;
-    padding-right:4rem;
-    padding-bottom: 4rem;
+    padding-left: 6.4rem;
+    padding-right: 6.4rem;
+    padding-bottom: 6.4rem;
 
      #titleForm {
       display: block;
-      width: 348px;
-      margin: 4rem 4rem 2rem 4rem;
+      width: 34.8rem;
+      margin: 6.4rem 6.4rem 3.2rem 6.4rem;
       text-align: center;
     }
 
     #signIn {
       border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_400};
-      border-radius: 5px;
+      border-radius: .5rem;
     }
     
     h1 {
       font-family: Poppins;
-      font-size: 32px;
+      font-size: 3.2rem;
       font-weight: 500;
      }
   }

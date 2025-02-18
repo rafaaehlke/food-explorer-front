@@ -4,7 +4,7 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreackPoints'
 export const Container = styled.nav`
   display: flex;
   align-items: center;
-  height: 7.13rem;
+  height: 11.4rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   
 // main
@@ -12,11 +12,11 @@ aside {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 23.25rem;
-    margin-top: 3.4rem;
-    margin-right: 1.74rem;
-    margin-left: 1.74rem;
-    margin-bottom: 1.5rem;
+    width: 37.2rem;
+    margin-top: 5.44rem;
+    margin-right: 2.78rem;
+    margin-left: 2.78rem;
+    margin-bottom: 2.4rem;
     //margin: 3.4rem 1.74rem 1.5rem 1.74rem;
   }
 
@@ -26,18 +26,18 @@ aside {
   align-items: center;
 
   img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
   }
 
   p {
-    font-size: 1.37rem;
-    line-height: 1.56rem;
+    font-size: 2.1rem;
+    line-height:.8rem;
     font-weight: bold;
     text-transform: lowercase;
     
-    margin-left: .5rem;
-    margin-right: 1rem;
+    margin-left: .8rem;
+    margin-right: 1.6rem;
   }
 }
 
@@ -76,21 +76,21 @@ aside {
 
 // main
 aside {
-  width: 85.5rem;
-  height: 3rem;
-  margin: 1.5rem 7.68rem;
+  width: 136.8rem;
+  height: 4.8rem;
+  margin: 2.4rem 12.2rem;
 }
 
 //Logo
 .nameRestaurant {
   img {
-    width: 1.87rem;
-    height: 1.87rem;
-    margin-left: .62rem;
+    width: 3.0rem;
+    height: 3.0rem;
+    margin-left: 1rem;
   }
 
   p {
-    width: 9.12rem;
+    width: 14.6rem;
   }
 }
 
@@ -98,7 +98,7 @@ aside {
 .search {
   display: block;
   width: 100%;
-  margin-right: 2rem;
+  margin-right: 3.2rem;
 } 
 
 .requestsButton {
@@ -109,16 +109,16 @@ aside {
 .requests {
   display: flex;
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-  width: 13.5rem;
-  margin-right: 2rem;
-  font-size: .87rem;
-  line-height: 1.5rem;
+  width: 21.6rem;
+  margin-right: 3.2rem;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
 }
 
 // Button
 .exit {
   display: flex;
-  width: 2rem;
+  width: 3.2rem;
   padding: 0;
   margin: 0 auto;
   background-color: transparent;

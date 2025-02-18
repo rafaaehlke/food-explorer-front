@@ -30,14 +30,14 @@ grid-template-areas:
   grid-area: flyer;
   grid-row: 2/3;
   
-  width: 376px;
-  height: 7.5rem;
+  width: 37.6rem;
+  height: 12rem;
   
   background: var(--Gradients-200, linear-gradient(180deg, #091E26 0%, #00131C 100%));
   
   img {
-    width: 11.93rem;
-    height: 9.31rem;
+    width: 19.1rem;
+    height: 14.9rem;
   }
   
   > p, span {

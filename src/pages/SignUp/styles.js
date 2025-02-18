@@ -13,19 +13,19 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.4rem;
-    padding-top: 9.8rem;
+    gap: 2.2rem;
+    padding-top: 15.7rem;
   }
   
   section > h1 {
-    font-size: 2.4rem;
+    font-size: 3.7rem;
     font-weight: bold;
   }
   
   span {
     font-weight: 400;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
-    padding-bottom: .6rem;
+    padding-bottom: .8rem;
   }
 
     @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
@@ -42,7 +42,7 @@ export const Container = styled.div`
       }
 
       section > h1 {
-        font-size: 3rem;
+        font-size: 4.2rem;
         font-weight: bold;
       }
     }
@@ -52,38 +52,41 @@ export const Container = styled.div`
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 4.6rem;
-  margin-left: 4rem;
-  margin-right: 2.8rem; 
+  margin-top: 14.2rem;
+  margin-left: 6.4rem;
+  margin-right: 4.4rem; 
 
   #titleForm {
     display: none;
   }
 
   #haveAccount {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem;
+   
+    margin-top: 3.2rem;
+   
     background-color: transparent;
     color: ${({ theme }) => theme.COLORS_LIGHT_100};
-    font-family: "Poppins", sans-serif;
-    font-size: .8rem;
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
      background-color: ${({ theme }) => theme.COLORS.DARK_700};
-     padding: 4rem;
-     margin: 5.6rem 6.8rem 7rem auto;
-     border-radius: 1rem;
+     padding: 6.4rem;
+     margin: 9.0rem 10.8rem 11.2rem auto;
+     border-radius: 1.6rem;
 
      #titleForm {
       display: block;
-      width: 348px;
-      margin: 0rem 4rem;
-      padding-bottom: 2rem;
+      width: 34.8rem;
+      margin: 0 6.4rem;
+      padding-bottom: 3.2rem;
       text-align: center;
     }
     
     h1 {
       font-family: Poppins;
-      font-size: 2rem;
+      font-size: 3.2rem;
       font-weight: 500;
      }
   }
