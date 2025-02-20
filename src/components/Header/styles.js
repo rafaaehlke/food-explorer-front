@@ -12,7 +12,7 @@ aside {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 37.2rem;
+    width: 100%;
     margin-top: 5.44rem;
     margin-right: 2.78rem;
     margin-left: 2.78rem;
