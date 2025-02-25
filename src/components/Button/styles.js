@@ -22,4 +22,8 @@ export const Container = styled.button`
     opacity: 0.5;
   }
 
+  &:hover {
+    opacity: 0.10s;
+  }
+
 `
