@@ -1,14 +1,19 @@
-import { Container } from "./style"
+import { Container, Remove, Add } from "./style"
 import { FiMinus, FiPlus } from "react-icons/fi";
 
 
-export function ButtonAdd() {
+export function ButtonAdd({ ...props }) {
   return (
-    <Container>
-      
+    <Container {...props}>
+      <Remove>
         <FiMinus />
-        <span>01</span>
+      </Remove>
+
+      <span>01</span>
+     
+      <Add>
         <FiPlus />
+      </Add>
     </Container>
   )
 }
