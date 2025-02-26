@@ -1,12 +1,8 @@
-import { Container, HeaderWrapper, FooterWrapper } from './styles'
+import { Container, HeaderWrapper, FirstSection, Content, FooterWrapper } from './styles'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
-import { Input } from '../../components/Input'
-import { Button } from '../../components/Button'
-import Principal from '../../assets/pngegg.png'
-import Salada from '../../assets/salada.png'
-import Pao from '../../assets/paozinho.png'
-import Suco from '../../assets/sucocanela.png'
+import { Cards } from '../../components/Cards'
+import Logo from '../../assets/pngegg.png'
 
 
 import 'keen-slider/keen-slider.min.css';
@@ -26,7 +22,28 @@ export function Home() {
         <Header />
       </HeaderWrapper>
 
+      <FirstSection>
+        <div className="Logo">
+          <img src={Logo} alt="Frutas Logo Marca" />
+        </div>
 
+        <div className="textosBanner">
+        <p>Sabores Inigualáveis</p>
+        <span>Sinta o cuidado do preparo com ingredientes selecionados.</span>
+          
+        </div>
+      </FirstSection>
+
+      <Content>
+        <p> Refeiçoes</p>
+        <Cards/>
+
+        <p>Pratos Principais</p>
+        <Cards/>
+
+        <p>Sucos</p>
+        <Cards />
+      </Content>
 
       <FooterWrapper>
         <Footer />
