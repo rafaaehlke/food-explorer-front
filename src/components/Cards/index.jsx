@@ -3,9 +3,9 @@ import Pao from '../../assets/paozinho.png'
 import { ButtonAdd } from '../ButtonAdd'
 import { Button } from '../Button'
 
-export function Cards() {
+export function Cards( {...props }) {
   return (
-    <Container>
+    <Container {...props}>
       <img src={Pao} alt="Foto prato com torradas e pessego" />
       <p>Torradas de Parma</p>
       <span className="description">Presunto de parma e rúcula em um pão com fermentação natural.</span>
