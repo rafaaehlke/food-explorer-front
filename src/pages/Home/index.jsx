@@ -36,7 +36,7 @@ export function Home() {
 
       <Content>
         <p> Refeiçoes</p>
-        <Cards/>
+        <Cards className="teste"/>
 
         <p>Pratos Principais</p>
         <Cards/>

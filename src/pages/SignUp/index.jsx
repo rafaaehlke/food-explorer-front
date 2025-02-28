@@ -3,9 +3,17 @@ import { Container, Form } from "./styles"
 import { Input } from "../../components/Input"
 
 import { Button } from "../../components/Button"
+import { useNavigate } from 'react-router-dom';
 
 
 export function SignUp() {
+
+  const navigate = useNavigate();
+
+  const haveAccount = () => {
+    navigate('/')
+  }
+
   return (
     <Container>
 
@@ -26,7 +34,7 @@ export function SignUp() {
         <Input placeholder="Mínimo 6 caracteres"></Input>
 
         <Button id="" title="Criar Conta" />
-        <Button id="haveAccount" title="Já tenho uma conta" />
+        <Button id="haveAccount" title="Já tenho uma conta" onClick={haveAccount}/>
 
       </Form>
 

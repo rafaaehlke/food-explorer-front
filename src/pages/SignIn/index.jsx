@@ -4,8 +4,19 @@ import { Input } from "../../components/Input"
 
 import { Button } from "../../components/Button"
 
+import { useNavigate } from 'react-router-dom';
 
 export function SignIn() {
+  const navigate = useNavigate();
+
+  const buttonLogin = () => {
+    navigate('/home');
+  };
+
+  const buttonRegister = () => {
+    navigate('/register')
+  }
+
   return (
     <Container>
 
@@ -23,8 +34,8 @@ export function SignIn() {
         <span>Senha</span>
         <Input id="signIn" placeholder="Mínimo 6 caracteres"></Input>
 
-        <Button id="Login" title="Entrar" />
-        <Button id="createAccount" title="Criar uma conta" />
+        <Button id="Login" title="Entrar" onClick={buttonLogin}/>
+        <Button id="createAccount" title="Criar uma conta" onClick={buttonRegister}/>
 
       </Form>
 
