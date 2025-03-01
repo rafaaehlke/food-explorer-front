@@ -4,17 +4,7 @@ import { Footer } from '../../components/Footer'
 import { Cards } from '../../components/Cards'
 import Logo from '../../assets/pngegg.png'
 
-
-import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react';
-
-
 export function Home() {
-  const [sliderRef, instanceRef] = useKeenSlider({
-    slideChanged: () => {
-      console.log('Slide alterado');
-    },
-  })
 
   return (
     <Container>
@@ -28,21 +18,33 @@ export function Home() {
         </div>
 
         <div className="textosBanner">
-        <p>Sabores Inigualáveis</p>
-        <span>Sinta o cuidado do preparo com ingredientes selecionados.</span>
-          
+          <p>Sabores Inigualáveis</p>
+          <span>Sinta o cuidado do preparo com ingredientes selecionados.</span>
+
         </div>
       </FirstSection>
 
       <Content>
-        <p> Refeiçoes</p>
-        <Cards className="teste"/>
 
-        <p>Pratos Principais</p>
-        <Cards/>
+        <div className="refeicoes">
+          <p> Refeiçoes</p>
+          <div className="oi">
+          <Cards className="teste" />
+          <Cards className="teste" />
+          <Cards className="teste" />
+          </div>
 
-        <p>Sucos</p>
-        <Cards />
+        </div>
+
+        <div className="principais">
+          <p>Pratos Principais</p>
+          <Cards />
+        </div>
+
+        <div className="drinks">
+          <p>Sucos</p>
+          <Cards />
+        </div>
       </Content>
 
       <FooterWrapper>

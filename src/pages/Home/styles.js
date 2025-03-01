@@ -18,7 +18,7 @@ export const Container = styled.div`
 `
 
 export const HeaderWrapper = styled.div`
-  grid-area: header;
+  grid-area: HeaderWrapper;
   grid-column: 1/2;
   grid-row: 1/1;
 `
@@ -54,7 +54,9 @@ export const FirstSection = styled.div`
     // tamanho reajustado para telas minimas 320px
     width: 16.1rem;
     height: 13.9rem;
+    opacity: 0.8;
   }
+
  }
 
  .textosBanner {
@@ -74,7 +76,7 @@ export const FirstSection = styled.div`
     font-weight: 600;
     line-height: 140%;
 
-    color: ${({theme}) => theme.COLORS.LIGHT_300};
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
   span {
@@ -84,7 +86,42 @@ export const FirstSection = styled.div`
     font-weight: 400;
     line-height: 140%;
 
-    color: ${({theme}) => theme.COLORS.LIGHT_300};
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
+  }
+ }
+
+// Desktop
+ @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+  width: 112.0rem;
+  height: 26.0rem;
+
+  margin: 16.4rem auto 6.2rem;
+
+  .Logo {
+    top: -36%;
+    left: -50%;
+    
+    img {
+      width: 632px;
+      height: 406px;
+    }
+  }
+
+  .textosBanner {
+    width: 42.2rem;
+    margin-right: 10.0rem;
+    padding-bottom: 8.2rem;
+    
+    p { 
+      font-size: 4.0rem;
+      font-weight: 500;
+    }
+
+    span {
+      font-family: Roboto;
+      font-size: 1.6rem;
+      line-height: 100%
+    }
   }
  }
 `;
@@ -99,9 +136,39 @@ row-gap: 2.4rem;
 padding-top: 6.2rem;
 padding-left: 2.4rem;
 padding-bottom: 2.4rem;
+
+@media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+ margin: 0 auto;
+ width: 1368px;
+ height: 2400px;
+
+  .refeicoes {
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+
+  p {
+    font-family: Poppins;
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 140%;
+  }
+
+  .teste {
+    width: 304px;
+    height: 462px;
+  }
+
+  .oi {
+    display: flex;
+    flex-direction: row;
+    gap: 27px;
+  }
+  }
+ }
 `
 export const FooterWrapper = styled.div`
-  grid-area: footer;
+  grid-area: FooterWrapper;
   grid-column: 1/2;
   grid-row: 4/5;
 
