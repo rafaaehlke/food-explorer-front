@@ -15,12 +15,12 @@ export const Container = styled.div`
   border: 1px solid var(--Dark-Dark-300, #000204);
   background: var(--Dark-Dark-200, #00070A);
 
-  > img {
+  > .image {
     width: 8.8rem;
     height: 8.8rem;
   } 
 
-  p {
+  .title {
     width: 100%;
     font-size: 1.4rem;
     line-height: 2.4rem;
@@ -62,7 +62,7 @@ export const Container = styled.div`
     height: 46.2rem;
     gap: 1.5rem;
 
-    img {
+    .image {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -71,7 +71,7 @@ export const Container = styled.div`
       height: 17.6rem;
     }
 
-    p {
+    .title {
       font-size: 2.4rem;
     }
 
