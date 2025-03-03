@@ -28,10 +28,10 @@ export function Home() {
 
         <div className="refeicoes">
           <p> Refeiçoes</p>
-          <div className="oi">
-          <Cards className="teste" />
-          <Cards className="teste" />
-          <Cards className="teste" />
+          <div className="cardRefeicoes">
+            <Cards className="teste" />
+            <Cards className="teste" />
+            <Cards className="teste" />
           </div>
 
         </div>

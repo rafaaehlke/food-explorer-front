@@ -158,12 +158,14 @@ padding-bottom: 2.4rem;
     width: 304px;
     height: 462px;
   }
-
-  .oi {
+  
+  .cardRefeicoes {
+    border: 1px solid red;
     display: flex;
     flex-direction: row;
     gap: 27px;
   }
+  
   }
  }
 `
