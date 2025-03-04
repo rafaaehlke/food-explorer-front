@@ -137,36 +137,25 @@ padding-top: 6.2rem;
 padding-left: 2.4rem;
 padding-bottom: 2.4rem;
 
+.tituloPrincipal {
+  font-size: 1.8rem;
+  padding-bottom: 2.4rem;
+}
+
 @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
  margin: 0 auto;
- width: 1368px;
- height: 2400px;
+ width: 136.8rem;
+ height: 240.0rem;
 
-  .refeicoes {
-  display: flex;
-  flex-direction: column;
-  gap: 2.3rem;
 
-  p {
-    font-family: Poppins;
-    font-size: 3.2rem;
-    font-weight: 500;
-    line-height: 140%;
-  }
+.tituloPrincipal {
+  font-family: Poppins;
+  font-size: 3.2rem;
+  line-height: 140%;
+}
 
-  .teste {
-    width: 304px;
-    height: 462px;
-  }
+
   
-  .cardRefeicoes {
-    border: 1px solid red;
-    display: flex;
-    flex-direction: row;
-    gap: 27px;
-  }
-  
-  }
  }
 `
 export const FooterWrapper = styled.div`

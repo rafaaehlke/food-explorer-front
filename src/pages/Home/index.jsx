@@ -1,7 +1,7 @@
 import { Container, HeaderWrapper, FirstSection, Content, FooterWrapper } from './styles'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
-import { Cards } from '../../components/Cards'
+import { Carousel } from '../../components/Carousel'
 import Logo from '../../assets/pngegg.png'
 
 export function Home() {
@@ -27,23 +27,19 @@ export function Home() {
       <Content>
 
         <div className="refeicoes">
-          <p> Refeiçoes</p>
-          <div className="cardRefeicoes">
-            <Cards className="teste" />
-            <Cards className="teste" />
-            <Cards className="teste" />
-          </div>
+          <p className='tituloPrincipal'> Refeiçoes</p>
+          <Carousel/>
 
         </div>
 
         <div className="principais">
-          <p>Pratos Principais</p>
-          <Cards />
+          <p className='tituloPrincipal'>Pratos Principais</p>
+          <Carousel/>
         </div>
 
         <div className="drinks">
-          <p>Sucos</p>
-          <Cards />
+          <p className='tituloPrincipal'> Sucos</p>
+          <Carousel/>
         </div>
       </Content>
 
