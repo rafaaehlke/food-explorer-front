@@ -67,9 +67,8 @@ height: 67.7rem;
   display: flex;
   flex-direction: column;
   width: 31.6rem;
-  height: 100%;
+  height: auto;
   gap: 2.4rem;
-
 }
 
 .pratoInfo {
@@ -87,7 +86,7 @@ height: 67.7rem;
   padding-bottom: 2.4rem;
   }
 
-.infoPrato {
+.description {
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   text-align: center;
   font-family: Poppins;
@@ -135,76 +134,130 @@ height: 67.7rem;
   }
 }
 
+@media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
+  display: grid;
+  grid-row: 2 / 4;
+  margin: 1.6rem 5.6rem;
+  justify-content: space-around;
+  
+  .conteudoPrato {
+    width: 36.0rem;
+    height: auto;
+    gap: 4.2rem;
+    align-items: center;
+  }
+}
+
 @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
   display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  gap: 4.7rem;
-
-.voltar {
+  flex-direction: column;
+  padding-top: 2.4rem;
+  padding-right: 12.2rem;
+  padding-left: 12.2rem;
+  justify-content: unset;
+  .voltar {
   font-weight: 700;
-  gap: 0;
+  
+  margin-left: 12.2rem;
+  
+  padding-top: 2.4rem;
+  padding-bottom: 4.2rem;
 
   > svg {
     width: 3.2rem;
     height: 3.2rem;
   }
-}
 
-.prato {
+  }
+
+  .main {
   display: flex;
   align-items: center;
-  margin-top: 4.2rem;
-  margin-left: 12.15rem;
-  padding-bottom: 15.5rem;
-}
+  margin-left: 12.2rem;
 
-.prato img {
-  border: 1px solid green;
-  width: 390px;
-  height: 389px;
-  object-fit: contain;
-}
+  gap: 4.7rem;
 
-.conteudoPrato {
-  border: 1px solid red;
-  flex-direction: column;
-  
-  width: 68.7rem;
-  height: 30.0rem;
 
-  margin-top: 14.5rem;
-  margin-right: 12.1rem;
+  .prato {
+    display: flex;
+    align-items: center;
+  }
+
+  .prato img {
+    width: 390px;
+    height: 389px;
+    object-fit: contain;
+  }
+
+  .pratoInfo {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
 
   .tituloPrato {
+    font-family: Poppins;
     font-size: 4.0rem;
-    width: 35.4rem;
-    height: 5.6rem;
+    font-weight: 500;
   }
-  
-  .infoPrato {
-    border: 1px solid rebeccapurple;
+
+  .description {
+    font-family: Poppins;
     font-size: 2.4rem;
-    font-style: normal;
     font-weight: 400;
-
-    width: 687px;
-    height: 68px;
+    line-height: 140%;    
   }
-}
+  } 
 
-.marcadores {
-  justify-content: flex-start;
-  width: auto;
-  height: auto;
-}
+  .conteudoPrato {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+    width: 68.7rem;
+    height: auto;
+    gap: 2.4rem;
 
-.botoes {
-  padding-top: 4.8rem;
-  width: 294px;
-  height: 48px;
-}
-}
+    .tituloPrato {
+      font-size: 4.0rem;
+    }
+  
+    .description {
+      text-align: start;
+      font-size: 2.4rem;
+      font-style: normal;
+      font-weight: 400;
+    }
+  
+    .marcadores {
+      justify-content: flex-start;
+      width: auto;
+      height: auto;
+    }
+
+    .botoes {
+      width: 29.4rem; 
+      height: 100%;
+
+      .incluir {
+        font-family: Poppins;
+        font-size: 1.4rem;
+        font-style: normal;
+        padding: 1.2rem 2.2rem;
+
+        > svg {
+          display: none;
+        }
+
+        &:hover  {
+          box-shadow: 2px 7px 17px 0px rgba(0,0,0,0.75);
+      }
+      }
+    }
+  } 
+
+  }
+} 
+
 `
 
 export const FooterWrapper = styled.div`

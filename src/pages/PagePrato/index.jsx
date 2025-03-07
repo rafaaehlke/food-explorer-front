@@ -4,8 +4,8 @@ import { Footer } from '../../components/Footer'
 import { Button } from '../../components/Button'
 import { ButtonAdd } from '../../components/ButtonAdd'
 import { PiCaretLeft, PiReceiptLight } from "react-icons/pi";
-import {  Tag } from '../../components/Tag'
- 
+import { Tag } from '../../components/Tag'
+
 import Prato from '../../assets/prato.png'
 
 export function PagePrato() {
@@ -22,32 +22,39 @@ export function PagePrato() {
           title="Voltar"
           icon={PiCaretLeft}>
         </Button>
-
-        <div className="prato">
-          <img src={Prato} alt="Imagem do prato selecionado" />
-        </div>
-
-        <div className="conteudoPrato">
-          <div className="pratoInfo">
-            <p className='tituloPrato'>Torradas Parma</p>
-            <span className='infoPrato'>Presunto de parma e rúcula em um pão com fermentação natural.</span>
+        
+        <div className="main">
+          <div className="prato">
+            <img src={Prato} alt="Imagem do prato selecionado" />
           </div>
 
-          <section className="marcadores">
-          <Tag title="alface"/>
-          <Tag title="queijo"/>
-          <Tag title="margarina"/>
-          </section>
+          <div className="conteudoPrato">
 
-          <div className="botoes">
-            <ButtonAdd className="quantidade" />
-            <Button
-              icon={PiReceiptLight}
-              className="incluir"
-              title="pedir ∙ R$ 25,00"
-            />
+            <div className="pratoInfo">
+              
+              <p className='tituloPrato'>Torradas Parma</p>
+              <span className='description'>Presunto de parma e rúcula em um pão com fermentação natural.</span>
+            
+            </div>
+
+            <section className="marcadores">
+              <Tag title="alface" />
+              <Tag title="queijo" />
+              <Tag title="margarina" />
+            </section>
+
+            <div className="botoes">
+              <ButtonAdd className="quantidade" />
+              <Button
+                icon={PiReceiptLight}
+                className="incluir"
+                title="incluir ∙ R$ 25,00"
+              />
+            </div>
+
           </div>
         </div>
+
       </Content>
 
       <FooterWrapper>
