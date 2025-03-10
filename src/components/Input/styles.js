@@ -32,5 +32,6 @@ export const Container = styled.div`
    height: 2.4rem;
    margin-left: 10rem;
    margin-right: 1.4rem;
+   color: ${({theme}) => theme.COLORS.LIGHT_400};
   }
 `;
