@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../services/api";
 
 export const AuthContext = createContext({});
@@ -12,18 +12,40 @@ function AuthProvider({ children }) {
       const response = await api.post("/session", { email, password });
       const { user, token } = response.data;
 
+      // Armazenando os dados no localStorage
+      localStorage.setItem("@foodexplorer:user", JSON.stringify(user));  //JSON.stringify transforma de objeto para texto
+      localStorage.setItem("@foodexplorer:token", token);
+
+      // Configurando o token no header da API
       api.defaults.headers.authorization = `Bearer ${token}`;
+     
+      // Atualiza o estado
       setData({ user, token });
 
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
-      
+
       } else {
         alert("Não foi possivel fazer login");
       }
     };
   };
+
+  // verificar se há token e usuário no localStorage ao montar o componente
+  useEffect(() => {
+    const token = localStorage.getItem("@foodexplorer:token");
+    const user = localStorage.getItem("@foodexplorer:user");
+
+    if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+
+      setData({
+        token,
+        user: JSON.parse(user),
+      });
+    }
+  }, []);
 
 
   return (
