@@ -1,21 +1,33 @@
-import Logo from "../../assets/logo.svg"
-import { Container, Form } from "./styles"
-import { Input } from "../../components/Input"
-
-import { Button } from "../../components/Button"
-
+import { Button } from "../../components/Button";
 import { useNavigate } from 'react-router-dom';
+import { Input } from "../../components/Input";
+import { Container, Form } from "./styles";
+import { useAuth } from "../../hooks/auth";
+import Logo from "../../assets/logo.svg";
+import { useState } from "react";
+
+
+
 
 export function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { signIn } = useAuth();
+
+  function handleSignIn(){
+    signIn({email, password});
+  };
+  
   const navigate = useNavigate();
 
-  const buttonLogin = () => {
-    navigate('/home');
-  };
+  // const buttonLogin = () => {
+  //   navigate('/home');
+  // };
 
-  const buttonRegister = () => {
-    navigate('/register')
-  }
+   const buttonRegister = () => {
+   navigate('/register')
+   }
 
   return (
     <Container>
@@ -29,13 +41,17 @@ export function SignIn() {
         <div id="titleForm">
           <h1>Faça o Login</h1>
         </div>
+        
         <span>Email</span>
-        <Input id="signIn" placeholder="Exemplo: rocktseat@email.com"></Input>
+        <Input id="signIn" type="email" placeholder="Exemplo: rocktseat@email.com" 
+        onChange={e => setEmail(e.target.value)}/>
+        
         <span>Senha</span>
-        <Input id="signIn" placeholder="Mínimo 6 caracteres"></Input>
+        <Input id="signIn" type="password" placeholder="Mínimo 6 caracteres" 
+        onChange={e => setPassword(e.target.value)}/>
 
-        <Button id="Login" title="Entrar" onClick={buttonLogin}/>
-        <Button id="createAccount" title="Criar uma conta" onClick={buttonRegister}/>
+        <Button id="Login" title="Entrar" onClick={handleSignIn} />
+        <Button id="createAccount" title="Criar uma conta" onClick={buttonRegister} />
 
       </Form>
 
