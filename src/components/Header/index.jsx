@@ -5,9 +5,11 @@ import { PiReceiptLight, PiList  } from "react-icons/pi";
 import { FaSearch } from "react-icons/fa";
 import { RxExit } from "react-icons/rx"
 import Logo from '../../assets/logo.svg'
-
+import { useAuth } from '../../hooks/auth'
 
 export function Header() {
+  const { signOut } = useAuth();
+
   return (
     <Container>
       <aside>
@@ -35,7 +37,7 @@ export function Header() {
         <Button icon={PiReceiptLight} className="requests" title="Pedidos"/>
 
 {/* Versao desktop */}
-        <Button icon={RxExit} className="exit" />
+        <Button icon={RxExit} className="exit" onClick={signOut}/>
       </aside>
 
     </Container>

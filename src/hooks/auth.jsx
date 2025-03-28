@@ -18,7 +18,7 @@ function AuthProvider({ children }) {
 
       // Configurando o token no header da API
       api.defaults.headers.authorization = `Bearer ${token}`;
-     
+
       // Atualiza o estado
       setData({ user, token });
 
@@ -31,6 +31,13 @@ function AuthProvider({ children }) {
       }
     };
   };
+
+  function signOut() {
+    localStorage.removeItem("@foodexplorer:user");
+    localStorage.removeItem("@foodexplorer:token");
+
+    setData({});
+  }
 
   // verificar se há token e usuário no localStorage ao montar o componente
   useEffect(() => {
@@ -49,7 +56,7 @@ function AuthProvider({ children }) {
 
 
   return (
-    <AuthContext.Provider value={{ signIn, user: data.user }}>
+    <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
       {children};
     </AuthContext.Provider>
   );

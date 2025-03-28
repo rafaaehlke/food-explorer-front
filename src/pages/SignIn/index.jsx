@@ -10,14 +10,14 @@ import { useState } from "react";
 
 
 export function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const { signIn } = useAuth();
 
   function handleSignIn(){
-    signIn({email, password});
-  };
+    signIn({email, password})
+  }
   
   const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ export function SignIn() {
         onChange={e => setEmail(e.target.value)}/>
         
         <span>Senha</span>
-        <Input id="signIn" type="password" placeholder="Mínimo 6 caracteres" 
+        <Input id="pass" type="password" placeholder="Mínimo 6 caracteres" 
         onChange={e => setPassword(e.target.value)}/>
 
         <Button id="Login" title="Entrar" onClick={handleSignIn} />
