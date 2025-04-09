@@ -17,7 +17,7 @@ function AuthProvider({ children }) {
       localStorage.setItem("@foodexplorer:token", token);
 
       // Configurando o token no header da API
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       // Atualiza o estado
       setData({ user, token });
@@ -29,8 +29,8 @@ function AuthProvider({ children }) {
       } else {
         alert("Não foi possivel fazer login");
       }
-    };
-  };
+    }
+  }
 
   function signOut() {
     localStorage.removeItem("@foodexplorer:user");
@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
     const user = localStorage.getItem("@foodexplorer:user");
 
     if (token && user) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       setData({
         token,
@@ -57,7 +57,7 @@ function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
-      {children};
+      {children}
     </AuthContext.Provider>
   );
 };
@@ -65,7 +65,5 @@ function AuthProvider({ children }) {
 function useAuth() {
   const context = useContext(AuthContext);
 
-  return context;
-}
-
+  return context;}  
 export { AuthProvider, useAuth };
