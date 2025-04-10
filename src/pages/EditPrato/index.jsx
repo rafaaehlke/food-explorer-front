@@ -52,9 +52,6 @@ export function EditPrato() {
         <section className="ingredientes">
 
           <NewIngredient value="Salada" />
-          <NewIngredient value="Ovo" />
-          <NewIngredient value="Batata" />
-
           <NewIngredient isNew placeholder="Adicionar" />
         </section>
 

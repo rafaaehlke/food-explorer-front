@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreackPoints"
 
 
 export const HeaderWrapper = styled.div`
@@ -136,6 +137,22 @@ export const Form = styled.form`
   border-radius: .8rem;
 }
 
+.ingredientes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  padding: .4rem .8rem;
+  
+  background-color: ${({ theme }) => theme.COLORS.DARK_800};
+  border-radius: .8rem;
+}
+
+// Desktop
+@media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+  border: 1px dashed;
+  
+
+ }
 `
 
 
