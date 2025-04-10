@@ -1,6 +1,6 @@
 
 import { Container } from "./styles";
-import { IoIosRemove, IoMdAdd } from "react-icons/io";
+import { IoIosClose , IoMdAdd } from "react-icons/io";
 
 
 export function NewIngredient({ isNew, value, onClick, ...rest }) {
@@ -9,7 +9,7 @@ export function NewIngredient({ isNew, value, onClick, ...rest }) {
         <input type="text"  value={value}  readOnly={!isNew}  {...rest} />
 
         <button type="button" onClick={onClick} className={isNew ? 'button-add' : 'button-delete'} >
-          {isNew ? <IoMdAdd /> : <IoIosRemove />}
+          {isNew ? <IoMdAdd /> : <IoIosClose  />}
         </button>
     </Container>
   )

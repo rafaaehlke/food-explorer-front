@@ -3,28 +3,25 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  max-width: calc(50% - 1.6rem);
+  height: 3.2rem;
+  gap: 8px;
+  padding: 1rem 1.6rem;
 
-  height: 4.8rem;
-  padding: .4rem .8rem;
-  background-color: ${({ theme }) => theme.COLORS.DARK_800};
+  background-color: ${({ theme, $isNew }) => $isNew ? "transparent" : theme.COLORS.LIGHT_600};
+  border: ${({ theme, $isNew }) => $isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : `8px solid ${theme.COLORS.LIGHT_600}`};
+  border-radius: .6rem;
 
 
   > input {
-    position: relative;
-    width: 11.7rem;
-    height: 3.2rem;
-    padding: 1.0rem 1.6rem;
+    width: 100%;
+    background-color: transparent;
+    border: none;
 
     color: ${({ theme, $isNew }) => $isNew ? theme.COLORS.LIGHT_500 : theme.COLORS.LIGHT_100};
-    border-radius: .6rem;
-    border: ${({ theme, $isNew }) => $isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : `8px solid ${theme.COLORS.LIGHT_600}`};
-    background-color: ${({ theme, $isNew }) => $isNew ? "transparent" : theme.COLORS.LIGHT_600};
   }
 
   button {
-    position: absolute;
-    right: 17.0rem;
     background: none;
     border: none;
     display: flex;
