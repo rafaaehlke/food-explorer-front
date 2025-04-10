@@ -1,12 +1,11 @@
 import { Container, HeaderWrapper, Form, FooterWrapper } from "./styles";
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { Button } from '../../components/Button'
-import { PiCaretLeft } from "react-icons/pi"
+import { NewIngredient } from "../../components/NewIngredient";
+import { Button } from '../../components/Button';
+import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
+import { Input } from "../../components/Input";
+import { PiCaretLeft } from "react-icons/pi";
 import { LuUpload } from "react-icons/lu";
-import { Tag } from "../../components/Tag"
-import { Input } from "../../components/Input"
-import { NewIngredient } from "../../components/NewIngredient"
 
 
 
@@ -25,39 +24,59 @@ export function EditPrato() {
           icon={PiCaretLeft}>
         </Button>
 
-        <h1>Novo Prato</h1>
+        <h1>Editar Prato</h1>
 
-        <span>Imagem do prato</span>
-        <label htmlFor="pictureDish">
-          <LuUpload />
-          selecione uma imagem
-          <input
-            type="file"
-            id="pictureDish"
-            title="Selecione uma imagem"
-          />
-        </label>
+        <section className="section-wrapper">
+          {/* upload image */}
+          <div className="upload-wrapper">
+            <span>Imagem do prato</span>
+            <label htmlFor="pictureDish">
+              <LuUpload />
+              selecione uma imagem
+              <input
+                type="file"
+                id="pictureDish"
+                title="Selecione uma imagem"
+              />
+            </label>
+          </div>
 
-        <span id="name">Nome</span>
-        <input  type="text" placeholder="Ex: Salada Crispy" id="dishName" />
+          {/* Nome prato */}
+          <div className="name-wrapper">
+            <span id="name">Nome</span>
+            <input type="text" placeholder="Ex: Salada Crispy" id="dishName" />
+          </div>
 
-        <span id="category">Categoria</span>
-        <div className="input-wrapper">
-          <select id="selectCategory">
-            <option value="dish">Refeição</option>
-          </select>
-        </div>
-
-        <span id="ingredientes">Ingredientes</span>
-        <section className="ingredientes">
-
-          <NewIngredient value="Salada" />
-          <NewIngredient isNew placeholder="Adicionar" />
+          {/* Categoria */}
+          <div className="category-wrapper">
+            <span id="category">Categoria</span>
+            <div className="input-wrapper">
+              <select id="selectCategory">
+                <option value="dish">Refeição</option>
+              </select>
+            </div>
+          </div>
         </section>
 
-        <span id="price">Preço</span>
-        <Input id="price" placeholder="R$ 40,00" />
+        {/* Ingredientes */}
+        <div className="ingredientesPrice-wrapper">
+          <div className="ingredients-wrapper">
+            <span id="ingredientes">Ingredientes</span>
+            <section className="ingredientes">
 
+              <NewIngredient value="Salada" />
+              <NewIngredient isNew placeholder="Adicionar" />
+            </section>
+          </div>
+          
+          {/* Preço */}
+          <div className="price-wrapper">
+            <span className="price">Preço</span>
+            <Input id="price" placeholder="R$ 40,00" />
+          </div>
+        </div>
+
+        {/* Descriçao */}
         <span id="description">Descrição</span>
         <textarea className="description" placeholder="A Salada César é uma opção refrescante para o verão." />
 
