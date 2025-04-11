@@ -6,10 +6,23 @@ import { Header } from '../../components/Header';
 import { Input } from "../../components/Input";
 import { PiCaretLeft } from "react-icons/pi";
 import { LuUpload } from "react-icons/lu";
+import { useState } from "react";
 
 
 
 export function NewPrato() {
+  const [ingredientes, setIngredientes] = useState([]);
+  const [novoIngrediente, setNovoIngrediente] = useState("");
+
+  function handleAddIngrediente() {
+    setIngredientes(estadoAnterior => [...estadoAnterior, novoIngrediente]);
+    setNovoIngrediente("")
+  }
+
+  function handleRemoveIngrediente(deleted) {
+    setIngredientes(estadoAnterior => estadoAnterior.filter(ingredientes => ingredientes !== deleted));
+  }
+
   return (
     <Container>
       <HeaderWrapper>
@@ -63,12 +76,23 @@ export function NewPrato() {
           <div className="ingredients-wrapper">
             <span id="ingredientes">Ingredientes</span>
             <section className="ingredientes">
-
-              <NewIngredient value="Salada" />
-              <NewIngredient isNew placeholder="Adicionar" />
+              {
+                ingredientes.map((ingrediente, index) => (
+                  <NewIngredient
+                    key={String(index)}
+                    value={ingrediente}
+                    onClick={() => handleRemoveIngrediente(ingrediente)} />
+                ))
+              }
+              <NewIngredient
+                isNew
+                placeholder="Adicionar"
+                value={novoIngrediente}
+                onChange={e => setNovoIngrediente(e.target.value)}
+                onClick={handleAddIngrediente} />
             </section>
           </div>
-          
+
           {/* Preço */}
           <div className="price-wrapper">
             <span className="price">Preço</span>
