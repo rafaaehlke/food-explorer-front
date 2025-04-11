@@ -1,19 +1,25 @@
-import { Container } from './styles'
-import { Input } from '../../components/Input'
-import { Button } from '../Button'
+import { Container } from './styles';
+import { Input } from '../../components/Input';
+import { Button } from '../Button';
 import { PiReceiptLight, PiList  } from "react-icons/pi";
 import { FaSearch } from "react-icons/fa";
-import { RxExit } from "react-icons/rx"
-import Logo from '../../assets/logo.svg'
-import { useAuth } from '../../hooks/auth'
+import { RxExit } from "react-icons/rx";
+import Logo from '../../assets/logo.svg';
+import { useAuth } from '../../hooks/auth';
+import { useNavigate } from 'react-router-dom';
 
 export function Header() {
-  const { signOut } = useAuth();
-
+  const { user, signOut } = useAuth();
+ 
+  const navigate = useNavigate();
+    function handleOpenMenu(){
+      navigate("/menu")
+    }
+  
   return (
     <Container>
       <aside>
-        <button type='button' id='list'>
+        <button type='button' id='list' onClick={handleOpenMenu}>
           <PiList  size={32} />
         </button>
 
