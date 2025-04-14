@@ -1,18 +1,19 @@
-import { Container } from './styles';
-import { Input } from '../../components/Input';
-import { Button } from '../Button';
 import { PiReceiptLight, PiList  } from "react-icons/pi";
-import { FaSearch } from "react-icons/fa";
-import { RxExit } from "react-icons/rx";
-import Logo from '../../assets/logo.svg';
-import { useAuth } from '../../hooks/auth';
+import { Input } from '../../components/Input';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
+import { FaSearch } from "react-icons/fa";
+import Logo from '../../assets/logo.svg';
+import { RxExit } from "react-icons/rx";
+import { Container } from './styles';
+import { Button } from '../Button';
 
 export function Header() {
   const { user, signOut } = useAuth();
  
   const navigate = useNavigate();
-    function handleOpenMenu(){
+    
+  function handleOpenMenu(){
       navigate("/menu")
     }
   
