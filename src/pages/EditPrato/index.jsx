@@ -6,10 +6,20 @@ import { Header } from '../../components/Header';
 import { Input } from "../../components/Input";
 import { PiCaretLeft } from "react-icons/pi";
 import { LuUpload } from "react-icons/lu";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/auth";
 
 
 export function EditPrato() {
+
+  const { user } = useAuth;
+  console.log("usuario:", user)
+  const navigate = useNavigate();
+
+  function voltarMenu() {
+    navigate("/");
+  };
+
   return (
     <Container>
       <HeaderWrapper>
@@ -21,7 +31,8 @@ export function EditPrato() {
         <Button
           className='voltar'
           title="Voltar"
-          icon={PiCaretLeft}>
+          icon={PiCaretLeft}
+          onClick={voltarMenu}>
         </Button>
 
         <h1>Editar Prato</h1>
@@ -68,7 +79,7 @@ export function EditPrato() {
               <NewIngredient isNew placeholder="Adicionar" />
             </section>
           </div>
-          
+
           {/* Preço */}
           <div className="price-wrapper">
             <span className="price">Preço</span>
