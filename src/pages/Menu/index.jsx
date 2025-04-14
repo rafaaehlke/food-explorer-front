@@ -1,5 +1,5 @@
 import { Container, Section } from './styles'
-import { HeaderMenu } from '../../components/HeaderMenu'
+import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
@@ -8,19 +8,30 @@ import { useAuth } from '../../hooks/auth'
 import { useNavigate } from 'react-router-dom'
 
 
-
 export function Menu() {
-  const { signOut } = useAuth();
+
+  const navigate = useNavigate();
+
+  function handleEditPrato(){
+    navigate("/editPrato")
+  }
+
+  function handleProfile(){
+    navigate("/Profile")
+  }
   
   return (
     <Container>
 
-      <HeaderMenu />
+      <Header />
 
 
       <Section>
         <Input icon={IoIosSearch} placeholder="Buscar pratos ou ingredientes" title="Buscar pratos ou ingredientes" />
-        <Button id="exit" title="Sair" onClick={signOut}/>
+        
+        <Button id="editarPratos" title="Editar Pratos" onClick={handleEditPrato}/>
+        
+        <Button id="profile" title="Perfil" onClick={handleProfile}/>
       </Section>
 
       <Footer />
