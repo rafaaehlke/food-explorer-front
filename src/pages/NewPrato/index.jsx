@@ -5,12 +5,14 @@ import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { Input } from "../../components/Input";
 import { PiCaretLeft } from "react-icons/pi";
+import { useAuth } from "../../hooks/auth";
 import { LuUpload } from "react-icons/lu";
 import { useState } from "react";
 
-
-
 export function NewPrato() {
+  const { user } = useAuth();
+  //console.log("Usuário logado:", user);
+
   const [ingredientes, setIngredientes] = useState([]);
   const [novoIngrediente, setNovoIngrediente] = useState("");
 
@@ -22,7 +24,6 @@ export function NewPrato() {
   function handleRemoveIngrediente(deleted) {
     setIngredientes(estadoAnterior => estadoAnterior.filter(ingredientes => ingredientes !== deleted));
   }
-
   return (
     <Container>
       <HeaderWrapper>

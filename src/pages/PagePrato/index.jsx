@@ -1,14 +1,17 @@
 import { Container, HeaderWrapper, Content, FooterWrapper } from './styles'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { Button } from '../../components/Button'
-import { ButtonAdd } from '../../components/ButtonAdd'
 import { PiCaretLeft, PiReceiptLight } from "react-icons/pi";
-import { Tag } from '../../components/Tag'
+import { ButtonAdd } from '../../components/ButtonAdd'
+import { Button } from '../../components/Button'
+import { Footer } from '../../components/Footer'
+import { Header } from '../../components/Header'
+import { useAuth } from "../../hooks/auth";
+import Prato from '../../assets/prato.png';
+import { Tag } from '../../components/Tag';
 
-import Prato from '../../assets/prato.png'
 
 export function PagePrato() {
+  const { user } = useAuth();
+
   return (
     <Container>
       <HeaderWrapper>

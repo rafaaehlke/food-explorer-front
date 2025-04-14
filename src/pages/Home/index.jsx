@@ -3,9 +3,11 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Carousel } from '../../components/Carousel'
 import Logo from '../../assets/pngegg.png'
+import { useAuth } from '../../hooks/auth'
 
 export function Home() {
-
+  const { user } = useAuth();
+  console.log("usuário logado:", user);
   return (
     <Container>
       <HeaderWrapper>
