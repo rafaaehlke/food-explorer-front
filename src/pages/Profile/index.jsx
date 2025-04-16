@@ -2,18 +2,20 @@ import { FiArrowLeft, FiCamera, FiUser, FiMail, FiLock } from "react-icons/fi";
 import { Container, Form, Avatar } from "./styles";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 import { useState } from "react";
 
 
 export function Profile() {
   const { user, updateProfile } = useAuth();
-  
+
+  const navigate = useNavigate();
+
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState();
-  const [newPassword, setNewPassword] = useState();
+  const [old_password, setOld_password] = useState();
 
 
   async function handleUpdate() {
@@ -22,7 +24,7 @@ export function Profile() {
       name,
       email,
       password: password,
-      newPassword: newPassword,
+      old_password: old_password
     };
     await updateProfile({ user });
   }
@@ -34,7 +36,7 @@ export function Profile() {
           id="voltarProfile"
           type="button"
         >
-          <FiArrowLeft />
+          <FiArrowLeft onClick={() => navigate(-1)}/>
         </button>
       </header>
 
@@ -74,17 +76,17 @@ export function Profile() {
           placeholder="Senha Atual"
           type="password"
           icon={FiLock}
-          onChange={e => setPassword(e.target.value)}
+          onChange={e => setOld_password(e.target.value)}
         />
 
         <Input
           placeholder="Nova Senha"
           type="password"
           icon={FiLock}
-          onChange={e => setNewPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
         />
 
-        <Button title="Salvar" onClick={handleUpdate}/>
+        <Button title="Salvar" onClick={handleUpdate} />
       </Form>
     </Container>
   )
