@@ -16,10 +16,14 @@ export function Menu() {
     navigate("/editPrato")
   }
 
+  function newPrato(){
+    navigate("/newPrato")
+  }
+
   function handleProfile(){
     navigate("/Profile")
   }
-  
+
   return (
     <Container>
 
@@ -30,7 +34,7 @@ export function Menu() {
         <Input icon={IoIosSearch} placeholder="Buscar pratos ou ingredientes" title="Buscar pratos ou ingredientes" />
         
         <Button id="editarPratos" title="Editar Pratos" onClick={handleEditPrato}/>
-        
+        <Button id="cadastrarPratos" title="Novo Prato" onClick={newPrato}/>
         <Button id="profile" title="Perfil" onClick={handleProfile}/>
       </Section>
 

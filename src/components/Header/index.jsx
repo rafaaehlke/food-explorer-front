@@ -9,13 +9,17 @@ import { Container } from './styles';
 import { Button } from '../Button';
 
 export function Header() {
-  const { user, signOut } = useAuth();
+  const { signOut } = useAuth();
  
   const navigate = useNavigate();
     
   function handleOpenMenu(){
       navigate("/menu")
     }
+
+  function backHome(){
+    navigate("/")
+  }
   
   return (
     <Container>
@@ -26,7 +30,7 @@ export function Header() {
 
         <div className="nameRestaurant">
 
-          <img src={Logo} alt="Logo Food Explorer" title='Logo Food Explorer' />
+          <img src={Logo} alt="Logo Food Explorer" title='Logo Food Explorer' onClick={backHome}/>
           <p>Food Explorer</p>
         </div>
 
