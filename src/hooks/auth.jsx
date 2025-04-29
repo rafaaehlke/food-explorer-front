@@ -77,7 +77,7 @@ function AuthProvider({ children }) {
       signIn,
       signOut,
       updateProfile,
-      user: data.user
+      user: data.user,
     }}>
       {children}
     </AuthContext.Provider>
