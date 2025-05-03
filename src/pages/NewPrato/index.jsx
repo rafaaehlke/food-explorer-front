@@ -13,13 +13,17 @@ import { useState } from "react";
 
 
 export function NewPrato() {
-  const { user } = useAuth();
-  console.log("usuário logado", user)
+  // const { user } = useAuth();
+  //console.log("usuário logado", user)
 
   const [imageName, setImageName] = useState("Selecione uma imagem");
   const [image, setImage] = useState("");
+  const [name, setName] = useState("")
+  const [category, setCategory] = useState("")
+  const [price, setPrice] = useState("")
+  const [description, setDescription] = useState("")
 
-  const [ingredientes, setIngredientes] = useState([""]);
+  const [ingredientes, setIngredientes] = useState([]);
   const [novoIngrediente, setNovoIngrediente] = useState("");
 
   const navigate = useNavigate();
@@ -31,8 +35,8 @@ export function NewPrato() {
   //OK
   function handleAddImage() {
     const file = event.target.files[0];
-    
-    if(file){
+
+    if (file) {
       setImage(file);
       setImageName(file.name);
     }
@@ -49,7 +53,42 @@ export function NewPrato() {
     setIngredientes(estadoAnterior => estadoAnterior.filter(ingredientes => ingredientes !== deleted));
   }
 
- 
+  async function handleSubmit() {
+    if (
+      !image
+      || !name
+      || !category
+      || !ingredientes
+      || !price
+      || description) {
+      alert("Favor preencher todos os campos.")
+    };
+
+    const formData = new FormData();
+    formData.append("image", image);
+    formData.append("name", name);
+    formData.append("category", category);
+    formData.append("price", price);
+    formData.append("description", description);
+
+    ingredientes.forEach(ingrediente => {
+      formData.append("ingredients", ingrediente);
+    })
+
+    try {
+      const response = await api.post("/dishes", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      alert(response.data.message);
+    } catch (error) {
+      console.error("Erro ao enviar dados:", error);
+    }
+
+  }
+
+
 
   return (
     <Container>
@@ -75,7 +114,7 @@ export function NewPrato() {
             <span>Imagem do prato</span>
             <label htmlFor="pictureDish">
               <LuUpload />
-               {imageName}
+              {imageName}
               <input
                 type="file"
                 id="pictureDish"
@@ -91,6 +130,8 @@ export function NewPrato() {
               type="text"
               placeholder="Ex: Salada Crispy"
               id="dishName"
+              onChange={e => setName(e.target.value)}
+              required
             />
           </div>
 
@@ -98,7 +139,7 @@ export function NewPrato() {
           <div className="category-wrapper">
             <span id="category">Categoria</span>
             <div className="input-wrapper">
-              <select id="selectCategory">
+              <select id="selectCategory" onChange={e => setCategory(e.target.value)}>
                 <option value="refeicoes">Refeições</option>
                 <option value="sobremesa">Sobremesas</option>
                 <option value="janta">Jantas</option>
@@ -124,7 +165,7 @@ export function NewPrato() {
               <NewIngredient
                 isNew
                 placeholder="Adicionar"
-                value={novoIngrediente}
+                value={novoIngrediente ?? ""}
                 onChange={e => setNovoIngrediente(e.target.value)}
                 onClick={handleAddIngrediente} />
             </section>
@@ -136,19 +177,21 @@ export function NewPrato() {
             <Input
               id="price"
               placeholder="R$ 40,00"
+              onChange={e => setPrice(e.target.value)}
             />
           </div>
         </div>
 
         {/* Descriçao */}
         <span id="description">Descrição</span>
-        <textarea 
-        className="description" 
-        placeholder="A Salada César é uma opção refrescante para o verão." 
+        <textarea
+          className="description"
+          placeholder="Digite a descrição do seu produto!"
+          onChange={e => setDescription(e.target.value)}
         />
 
         <div className="buttons">
-          <Button className="save" title="Salvar Alterações" />
+          <Button className="save" title="Salvar Alterações" onClick={handleSubmit} />
         </div>
       </Form>
 
