@@ -23,7 +23,7 @@ export function NewPrato() {
   const [price, setPrice] = useState("")
   const [description, setDescription] = useState("")
 
-  const [ingredientes, setIngredientes] = useState([]);
+  const [ingredientes, setIngredientes] = useState([""]);
   const [novoIngrediente, setNovoIngrediente] = useState("");
 
   const navigate = useNavigate();
@@ -54,15 +54,7 @@ export function NewPrato() {
   }
 
   async function handleSubmit() {
-    if (
-      !image
-      || !name
-      || !category
-      || !ingredientes
-      || !price
-      || description) {
-      alert("Favor preencher todos os campos.")
-    };
+
 
     const formData = new FormData();
     formData.append("image", image);
