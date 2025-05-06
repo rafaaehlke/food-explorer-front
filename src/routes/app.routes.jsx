@@ -14,7 +14,7 @@ export function AppRoutes() {
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/menu' element={<Menu />} />
-      <Route path='/pagePrato' element={<PagePrato />} />
+      <Route path='/pagePrato/:id' element={<PagePrato />} />
       <Route path='/newPrato' element={<NewPrato />} />
       <Route path='/editPrato' element={<EditPrato />} />
       <Route path='/profile' element={<Profile />} />
