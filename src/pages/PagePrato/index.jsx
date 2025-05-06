@@ -5,12 +5,37 @@ import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { useAuth } from "../../hooks/auth";
-import Prato from '../../assets/prato.png';
+//import Prato from '../../assets/prato.png';
 import { Tag } from '../../components/Tag';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { api } from '../../services/api';
 
 
 export function PagePrato() {
-  const { user } = useAuth();
+  const { id } = useParams();
+
+  const [prato, setPrato] = useState(null);
+  const [category, setCategory] = useState([]);
+
+
+  // prato
+  useEffect(() => {
+    api.get(`/dishes/${id}`)
+      .then(response => setPrato(response.data))
+      .catch(error => console.error("erro ao buscar o prato", error))
+  }, [id])
+
+  // ingredientes
+  useEffect(() => {
+    async function fetchIngredientes() {
+      const response = await api.get(`/dishes/${id}`)
+      setCategory(response.data.category)
+    }
+    fetchIngredientes();
+  }, [])
+
+  if (!prato) return <p>Carregando prato...</p>;
 
   return (
     <Container>
@@ -25,25 +50,30 @@ export function PagePrato() {
           title="Voltar"
           icon={PiCaretLeft}>
         </Button>
-        
+
         <div className="main">
           <div className="prato">
-            <img src={Prato} alt="Imagem do prato selecionado" />
+            <img src={prato} alt={prato.name} />
           </div>
 
           <div className="conteudoPrato">
 
             <div className="pratoInfo">
-              
-              <p className='tituloPrato'>Torradas Parma</p>
-              <span className='description'>Presunto de parma e rúcula em um pão com fermentação natural.</span>
-            
+
+              <p className='tituloPrato'>{prato.name}</p>
+              <span className='description'>{prato.description}</span>
+
             </div>
 
             <section className="marcadores">
-              <Tag title="alface" />
-              <Tag title="queijo" />
-              <Tag title="margarina" />
+              {
+                category && category.map(categoria => (
+
+                  <Tag 
+                  key={String(categoria.id)}
+                  title={categoria.name} />
+                ))
+              }
             </section>
 
             <div className="botoes">
@@ -51,7 +81,7 @@ export function PagePrato() {
               <Button
                 icon={PiReceiptLight}
                 className="incluir"
-                title="incluir ∙ R$ 25,00"
+                title={`incluir ∙ ${prato.price}`}
               />
             </div>
 
