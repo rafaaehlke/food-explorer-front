@@ -5,7 +5,7 @@ import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { useAuth } from "../../hooks/auth";
-//import Prato from '../../assets/prato.png';
+import Prato from '../../assets/prato.png';
 import { Tag } from '../../components/Tag';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -13,11 +13,17 @@ import { api } from '../../services/api';
 
 
 export function PagePrato() {
-  const { id } = useParams();
-
+  const { id } = useParams(); // retorna prato pelo id
+ 
   const [prato, setPrato] = useState(null);
   const [category, setCategory] = useState([]);
-
+  
+  
+  const imageUrl = `${api.defaults.baseURL}/files/`;
+  
+  function addOneMore(){
+    setAdd(add + 1)
+  }
 
   // prato
   useEffect(() => {
@@ -53,7 +59,7 @@ export function PagePrato() {
 
         <div className="main">
           <div className="prato">
-            <img src={prato} alt={prato.name} />
+            <img src={`${imageUrl}${prato.image}`} alt={prato.name} />
           </div>
 
           <div className="conteudoPrato">
