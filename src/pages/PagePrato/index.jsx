@@ -4,8 +4,6 @@ import { ButtonAdd } from '../../components/ButtonAdd'
 import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
-import { useAuth } from "../../hooks/auth";
-import Prato from '../../assets/prato.png';
 import { Tag } from '../../components/Tag';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -21,9 +19,6 @@ export function PagePrato() {
   
   const imageUrl = `${api.defaults.baseURL}/files/`;
   
-  function addOneMore(){
-    setAdd(add + 1)
-  }
 
   // prato
   useEffect(() => {
