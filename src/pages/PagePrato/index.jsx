@@ -14,7 +14,8 @@ export function PagePrato() {
   const { id } = useParams(); // retorna prato pelo id
  
   const [prato, setPrato] = useState(null);
-  const [category, setCategory] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
+  console.log()
   
   
   const imageUrl = `${api.defaults.baseURL}/files/`;
@@ -31,7 +32,7 @@ export function PagePrato() {
   useEffect(() => {
     async function fetchIngredientes() {
       const response = await api.get(`/dishes/${id}`)
-      setCategory(response.data.category)
+      setIngredients(response.data.ingredients)
     }
     fetchIngredientes();
   }, [])
@@ -68,11 +69,11 @@ export function PagePrato() {
 
             <section className="marcadores">
               {
-                category && category.map(categoria => (
+                ingredients && ingredients.map(ingredientes => (
 
                   <Tag 
-                  key={String(categoria.id)}
-                  title={categoria.name} />
+                  key={String(ingredientes.id)}
+                  title={ingredientes.name} />
                 ))
               }
             </section>
