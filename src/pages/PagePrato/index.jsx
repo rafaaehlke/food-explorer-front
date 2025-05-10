@@ -5,21 +5,20 @@ import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Tag } from '../../components/Tag';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 
 
 export function PagePrato() {
   const { id } = useParams(); // retorna prato pelo id
- 
+
   const [prato, setPrato] = useState(null);
   const [ingredients, setIngredients] = useState([]);
-  console.log()
-  
-  
+
+  const navigate = useNavigate()
   const imageUrl = `${api.defaults.baseURL}/files/`;
-  
+
 
   // prato
   useEffect(() => {
@@ -37,6 +36,7 @@ export function PagePrato() {
     fetchIngredientes();
   }, [])
 
+
   if (!prato) return <p>Carregando prato...</p>;
 
   return (
@@ -50,7 +50,9 @@ export function PagePrato() {
         <Button
           className='voltar'
           title="Voltar"
-          icon={PiCaretLeft}>
+          icon={PiCaretLeft}
+          onClick={() => navigate(-1)}
+        >
         </Button>
 
         <div className="main">
@@ -71,9 +73,9 @@ export function PagePrato() {
               {
                 ingredients && ingredients.map(ingredientes => (
 
-                  <Tag 
-                  key={String(ingredientes.id)}
-                  title={ingredientes.name} />
+                  <Tag
+                    key={String(ingredientes.id)}
+                    title={ingredientes.name} />
                 ))
               }
             </section>
