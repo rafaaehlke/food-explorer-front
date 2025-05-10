@@ -6,15 +6,12 @@ import { Header } from '../../components/Header';
 import { Input } from "../../components/Input";
 import { useNavigate } from "react-router-dom";
 import { PiCaretLeft } from "react-icons/pi";
-import { useAuth } from '../../hooks/auth';
 import { LuUpload } from "react-icons/lu";
 import { api } from "../../services/api";
 import { useState } from "react";
 
 
 export function NewPrato() {
-  // const { user } = useAuth();
-  //console.log("usuário logado", user)
 
   const [imageName, setImageName] = useState("Selecione uma imagem");
   const [image, setImage] = useState("");
@@ -55,7 +52,6 @@ export function NewPrato() {
 
   async function handleSubmit() {
 
-
     const formData = new FormData();
     formData.append("image", image);
     formData.append("name", name);
@@ -87,7 +83,6 @@ export function NewPrato() {
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
-
 
       <Form>
         <Button
@@ -132,9 +127,8 @@ export function NewPrato() {
             <span id="category">Categoria</span>
             <div className="input-wrapper">
               <select id="selectCategory" onChange={e => setCategory(e.target.value)}>
-                <option value="refeicoes">Refeições</option>
-                <option value="sobremesa">Sobremesas</option>
-                <option value="janta">Jantas</option>
+                <option value="pizza">Pizzas</option>
+                <option value="porcoes">Porções</option>
                 <option value="drinks">Drinks</option>
               </select>
             </div>
