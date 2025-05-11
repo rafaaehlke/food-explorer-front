@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div` 
   display: flex;
   align-items: center;
-  //margin-bottom: 3.2rem; 
-  
+
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
   
   border-radius: 0.8rem; 
-  
   
   > input {
     height: 4.8rem;
@@ -30,7 +28,7 @@ export const Container = styled.div`
   > svg {
    width: 2.4rem;
    height: 2.4rem;
-   margin-left: 10rem;
+   margin-left: 1.0rem;
    margin-right: 1.4rem;
    color: ${({theme}) => theme.COLORS.LIGHT_400};
   }
