@@ -3,48 +3,74 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Carousel } from '../../components/Carousel'
 import Logo from '../../assets/pngegg.png'
-import { useAuth } from '../../hooks/auth'
+import { useEffect, useState } from 'react'
+import { api } from '../../services/api'
 
 export function Home() {
-  const { user } = useAuth();
-  console.log("usuário logado:", user);
+  const [dishes, setDishes] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  async function getDishes() {
+    try {
+      const response = await api.get(`/dishes`, { params: { name: "" } });
+      setDishes(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Erro ao buscar pratos:", error);
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getDishes();
+  }, []);
+
+
   return (
     <Container>
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
 
-      <FirstSection>
-        <div className="Logo">
-          <img src={Logo} alt="Frutas Logo Marca" />
-        </div>
+        <FirstSection>
+          <div className="Logo">
+            <img src={Logo} alt="Frutas Logo Marca" />
+          </div>
 
-        <div className="textosBanner">
-          <p>Sabores Inigualáveis</p>
-          <span>Sinta o cuidado do preparo com ingredientes selecionados.</span>
+          <div className="textosBanner">
+            <p>Sabores Inigualáveis</p>
+            <span>Sinta o cuidado do preparo com ingredientes selecionados.</span>
 
-        </div>
-      </FirstSection>
+          </div>
+        </FirstSection>
 
-      <Content>
+        <Content>
 
-        <div className="refeicoes">
-          <p className='tituloPrincipal'> Refeiçoes</p>
-          <Carousel/>
 
-        </div>
+          {!loading && (
+            <div className="hamburguer">
+              <p className="tituloPrincipal"> Hambúrguer </p>
+              <Carousel dishes={dishes.filter(dish => dish.category === "hamburguer")} />
+            </div>
+          )}
 
-        <div className="principais">
-          <p className='tituloPrincipal'>Pratos Principais</p>
-          <Carousel/>
-        </div>
 
-        <div className="drinks">
-          <p className='tituloPrincipal'> Sucos</p>
-          <Carousel/>
-        </div>
-      </Content>
+          {!loading && (
+            <div className="porcoes">
+              <p className='tituloPrincipal'>Porções</p>
+              <Carousel dishes={dishes.filter(dish => dish.category === "porcoes")} />
+            </div>
+          )}
 
+
+          {(
+            <div className="drinks">
+              <p className='tituloPrincipal'>Bebidas</p>
+              <Carousel dishes={dishes.filter(dish => dish.category === "drinks")} />
+            </div>
+          )}
+        </Content>
+     
       <FooterWrapper>
         <Footer />
       </FooterWrapper>
