@@ -153,6 +153,11 @@ span {
   
   background-color: ${({ theme }) => theme.COLORS.DARK_800};
   border-radius: .8rem;
+
+  ::placeholder {
+    padding-left: 1.2rem;
+  }
+
 }
 
 #price {
@@ -169,6 +174,7 @@ span {
   padding: 1.4rem;
   
   
+  color: ${({ theme }) => theme.COLORS.LIGHT_500};
   background-color: ${({ theme }) => theme.COLORS.DARK_800};
   border: none;
   border-radius: .8rem;
