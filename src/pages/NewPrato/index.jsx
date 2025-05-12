@@ -15,10 +15,10 @@ export function NewPrato() {
 
   const [imageName, setImageName] = useState("Selecione uma imagem");
   const [image, setImage] = useState("");
-  const [name, setName] = useState("")
-  const [category, setCategory] = useState("")
-  const [price, setPrice] = useState("")
-  const [description, setDescription] = useState("")
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
 
   const [ingredientes, setIngredientes] = useState([""]);
   const [novoIngrediente, setNovoIngrediente] = useState("");
@@ -43,12 +43,17 @@ export function NewPrato() {
   function handleAddIngrediente() {
     setIngredientes(estadoAnterior => [...estadoAnterior, novoIngrediente]);
     setNovoIngrediente()
-  }
+  };
 
   //OK
   function handleRemoveIngrediente(deleted) {
     setIngredientes(estadoAnterior => estadoAnterior.filter(ingredientes => ingredientes !== deleted));
-  }
+  };
+
+  // OK
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
   async function handleSubmit() {
 
@@ -74,9 +79,7 @@ export function NewPrato() {
       console.error("Erro ao enviar dados:", error);
     }
 
-  }
-
-
+  };
 
   return (
     <Container>
@@ -127,9 +130,9 @@ export function NewPrato() {
             <span id="category">Categoria</span>
             <div className="input-wrapper">
               <select id="selectCategory" onChange={e => setCategory(e.target.value)}>
-                <option value="pizza">Pizzas</option>
+                <option value="hamburguer">Hambúrguer</option>
                 <option value="porcoes">Porções</option>
-                <option value="drinks">Drinks</option>
+                <option value="drinks">Bebidas</option>
               </select>
             </div>
           </div>
@@ -144,7 +147,7 @@ export function NewPrato() {
                 ingredientes.map((ingrediente, index) => (
                   <NewIngredient
                     key={String(index)}
-                    value={ingrediente}
+                    value={capitalizeFirstLetter(ingrediente)}
                     onClick={() => handleRemoveIngrediente(ingrediente)} />
                 ))
               }
