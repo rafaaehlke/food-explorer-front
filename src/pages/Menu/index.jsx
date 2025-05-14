@@ -36,10 +36,10 @@ export function Menu() {
         [USER_ROLE.ADMIN, USER_ROLE.CLIENTE].includes(user.role) &&
         <Section>
           <Input icon={IoIosSearch} placeholder="Buscar pratos ou ingredientes" title="Buscar pratos ou ingredientes" />
-          
+
           {user.role === USER_ROLE.ADMIN && <Button id="editarPratos" title="Editar Pratos" onClick={handleEditPrato} />}
           {user.role === USER_ROLE.ADMIN && <Button id="cadastrarPratos" title="Novo Prato" onClick={newPrato} />}
-          {user.role === USER_ROLE.CLIENTE && <Button id="profile" title="Perfil" onClick={handleProfile} />}
+          {(user.role === USER_ROLE.CLIENTE || USER_ROLE.ADMIN) && <Button id="profile" title="Perfil" onClick={handleProfile} />}
 
         </Section>
       }
