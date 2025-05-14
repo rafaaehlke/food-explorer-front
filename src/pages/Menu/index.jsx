@@ -4,23 +4,25 @@ import { Footer } from '../../components/Footer'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import { IoIosSearch } from "react-icons/io";
-import { useAuth } from '../../hooks/auth' 
+import { useAuth } from '../../hooks/auth'
 import { useNavigate } from 'react-router-dom'
+import { USER_ROLE } from '../../utils/roles'
 
 
 export function Menu() {
+  const { user } = useAuth()
 
   const navigate = useNavigate();
 
-  function handleEditPrato(){
+  function handleEditPrato() {
     navigate("/editPrato")
   }
 
-  function newPrato(){
+  function newPrato() {
     navigate("/newPrato")
   }
 
-  function handleProfile(){
+  function handleProfile() {
     navigate("/Profile")
   }
 
@@ -30,13 +32,17 @@ export function Menu() {
       <Header />
 
 
-      <Section>
-        <Input icon={IoIosSearch} placeholder="Buscar pratos ou ingredientes" title="Buscar pratos ou ingredientes" />
-        
-        <Button id="editarPratos" title="Editar Pratos" onClick={handleEditPrato}/>
-        <Button id="cadastrarPratos" title="Novo Prato" onClick={newPrato}/>
-        <Button id="profile" title="Perfil" onClick={handleProfile}/>
-      </Section>
+      {
+        [USER_ROLE.ADMIN, USER_ROLE.CLIENTE].includes(user.role) &&
+        <Section>
+          <Input icon={IoIosSearch} placeholder="Buscar pratos ou ingredientes" title="Buscar pratos ou ingredientes" />
+          
+          {user.role === USER_ROLE.ADMIN && <Button id="editarPratos" title="Editar Pratos" onClick={handleEditPrato} />}
+          {user.role === USER_ROLE.ADMIN && <Button id="cadastrarPratos" title="Novo Prato" onClick={newPrato} />}
+          {user.role === USER_ROLE.CLIENTE && <Button id="profile" title="Perfil" onClick={handleProfile} />}
+
+        </Section>
+      }
 
       <Footer />
     </Container>
