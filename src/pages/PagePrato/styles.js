@@ -117,7 +117,7 @@ height: 67.7rem;
     height: 3.79rem;
   }
 
-.incluir {
+.incluir  {
   height: 3.79rem;
   
   font-family: Poppins;
@@ -132,6 +132,13 @@ height: 67.7rem;
     height: 2.1rem;
     }
   }
+
+.editPrato  {
+  width: 13.2rem;
+  padding: 1.2rem 1.2rem;
+
+  font-size: 1.4rem;
+}
 }
 
 @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
