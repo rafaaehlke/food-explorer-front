@@ -8,10 +8,12 @@ import { Tag } from '../../components/Tag';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
-
+import { USER_ROLE } from '../../utils/roles';
+import { useAuth } from '../../hooks/auth';
 
 export function PagePrato() {
   const { id } = useParams(); // retorna prato pelo id
+  const { user } = useAuth();
 
   const [prato, setPrato] = useState(null);
   const [ingredients, setIngredients] = useState([]);
@@ -20,6 +22,9 @@ export function PagePrato() {
   const imageUrl = `${api.defaults.baseURL}/files/`;
 
 
+  function handleEdit(){
+    navigate(`/editPrato/${id}`)
+  }
   // prato
   useEffect(() => {
     api.get(`/dishes/${id}`)
@@ -35,7 +40,6 @@ export function PagePrato() {
     }
     fetchIngredientes();
   }, [])
-
 
   if (!prato) return <p>Carregando prato...</p>;
 
@@ -80,14 +84,14 @@ export function PagePrato() {
               }
             </section>
 
-            <div className="botoes">
-              <ButtonAdd className="quantidade" />
-              <Button
-                icon={PiReceiptLight}
-                className="incluir"
-                title={`incluir ∙ ${prato.price}`}
-              />
-            </div>
+            {
+              [USER_ROLE.ADMIN, USER_ROLE.CLIENTE].includes(user.role) &&
+              <div className="botoes">
+                {user.role === USER_ROLE.CLIENTE && <ButtonAdd className="quantidade" />}
+                {user.role === USER_ROLE.CLIENTE && <Button icon={PiReceiptLight} className="incluir" title={`incluir ∙ ${prato.price}`} />}
+                {user.role === USER_ROLE.ADMIN && <Button className="editPrato" title="Editar Prato" onClick={handleEdit}></Button>}
+              </div>
+            }
 
           </div>
         </div>
