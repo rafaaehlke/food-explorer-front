@@ -69,7 +69,7 @@ export function SignUp() {
         />
 
         <Button id="" title="Criar Conta" onClick={handleSignUp} />
-        <Button id="haveAccount" title="Já tenho uma conta" />
+        <Button id="haveAccount" title="Já tenho uma conta" onClick={() => navigate(-1)}/>
 
       </Form>
 
