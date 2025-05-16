@@ -32,7 +32,17 @@ export const Container = styled.div`
   width: 8.8rem;
   height: 8.8rem;
   object-fit: contain;
+  transition: 0.3s ease;
 }
+
+img:hover {
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: 0.3s ease;
+}
+
+
 
 .title {
     width: 100%;
@@ -111,7 +121,7 @@ export const Container = styled.div`
   display: flex;
   text-align: center;
   font-size: 1.4rem;
-  color: ${({theme}) => theme.COLORS.LIGHT_400};
+  color: ${({ theme }) => theme.COLORS.LIGHT_400};
   font-weight: 400;
   line-height: 160%;
 }
