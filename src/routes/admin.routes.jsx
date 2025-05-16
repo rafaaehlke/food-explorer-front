@@ -17,7 +17,7 @@ export function AdminRoutes() {
       <Route path='/menu' element={<Menu />} />
       <Route path='/prato/:id' element={<PagePrato />} />
       <Route path='/newPrato' element={<NewPrato />} />
-      <Route path='/editPrato' element={<EditPrato />} />
+      <Route path='/editPrato/:id' element={<EditPrato />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='*' exact={true} element={ <NotFound />}/>
 
