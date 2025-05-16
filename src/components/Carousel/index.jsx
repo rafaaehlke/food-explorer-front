@@ -12,10 +12,13 @@ import { ButtonAdd } from '../ButtonAdd';
 import { Button } from '../Button';
 
 import { api } from "../../services/api";
+import { useNavigate } from 'react-router-dom';
 
 
 export function Carousel({ dishes = [] }) {
   const imageUrl = `${api.defaults.baseURL}/files/`;
+  const navigate = useNavigate();
+
 
   return (
     <Container>
@@ -27,7 +30,7 @@ export function Carousel({ dishes = [] }) {
         navigation
       >
         {dishes.map(dishe => (
-          <SwiperSlide className="Carousel" key={dishe.id}>
+          <SwiperSlide className="Carousel" key={dishe.id} onClick={() => navigate(`/prato/${dishe.id}`)}>
             <img className="image" src={`${imageUrl}${dishe.image}`} alt={dishe.name} />
 
             <p className="title">{dishe.name}</p>
