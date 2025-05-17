@@ -14,9 +14,10 @@ export function EditPrato() {
 
   const { id } = useParams();
 
+  //renderiza todos os dados do prato
+  const [prato, setPrato] = useState("");
 
-  const [prato, setPrato] = useState("")
-  console.log("dados", prato)
+  const [category, setCategory] = useState(["hamburguer", "porcoes", "drinks"]);
 
   const navigate = useNavigate();
 
@@ -24,6 +25,8 @@ export function EditPrato() {
     navigate("/");
   };
 
+
+  // Retorna os dados do prato.
   useEffect(() => {
     api.get(`/dishes/${id}`)
       .then(response => setPrato(response.data))
@@ -70,6 +73,7 @@ export function EditPrato() {
               type="text"
               placeholder={prato.name}
               value={prato.name}
+              onChange={e => setName(e.target.value)}
             />
           </div>
 
@@ -77,8 +81,11 @@ export function EditPrato() {
           <div className="category-wrapper">
             <span id="category">Categoria</span>
             <div className="input-wrapper">
-              <select id="selectCategory">
-                <option value="dish">Refeição</option>
+              <select id="selectCategory" value={prato.category}>
+                {category.map(categorias => (
+                  <option value={prato.categorias} key={prato.categorias}>{categorias}</option>
+                ))
+                }
               </select>
             </div>
           </div>
