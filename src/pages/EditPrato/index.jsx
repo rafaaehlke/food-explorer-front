@@ -16,7 +16,6 @@ export function EditPrato() {
 
   //renderiza todos os dados do prato
   const [prato, setPrato] = useState("");
-
   const [category, setCategory] = useState(["hamburguer", "porcoes", "drinks"]);
 
   const navigate = useNavigate();
@@ -97,7 +96,13 @@ export function EditPrato() {
             <span id="ingredientes">Ingredientes</span>
             <section className="ingredientes">
 
-              <NewIngredient value="Salada" />
+              {prato.ingredients?.map((ingrediente, index) => (
+                <NewIngredient
+                  key={index}
+                  value={ingrediente.name}
+                  title={ingrediente.name}
+                />
+              ))}
               <NewIngredient isNew placeholder="Adicionar" />
             </section>
           </div>
