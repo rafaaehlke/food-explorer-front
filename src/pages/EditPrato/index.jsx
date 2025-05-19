@@ -16,7 +16,9 @@ export function EditPrato() {
 
   //renderiza todos os dados do prato
   const [prato, setPrato] = useState("");
+  const [novoIngrediente, setNovoIngrediente] = useState("");
   const [category, setCategory] = useState(["hamburguer", "porcoes", "drinks"]);
+
 
   const navigate = useNavigate();
 
@@ -24,6 +26,30 @@ export function EditPrato() {
     navigate("/");
   };
 
+  function handleAddIngrediente() {
+
+    if (!novoIngrediente.trim()) {
+      alert("Favor digitar um ingrediente válido!")
+      return
+    };
+
+    setPrato(prev => ({
+      ...prev,
+      ingredients: [...prev.ingredients, { name: novoIngrediente.trim() }]
+    }));
+    setNovoIngrediente("")
+  };
+
+  function removeIngrediente(deleted) {
+    setPrato(prev => ({
+      ...prev,
+      ingredients: prev.ingredients.filter(ingrediente => ingrediente !== deleted)
+    }));
+  }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
   // Retorna os dados do prato.
   useEffect(() => {
@@ -72,7 +98,6 @@ export function EditPrato() {
               type="text"
               placeholder={prato.name}
               value={prato.name}
-              onChange={e => setName(e.target.value)}
             />
           </div>
 
@@ -81,8 +106,8 @@ export function EditPrato() {
             <span id="category">Categoria</span>
             <div className="input-wrapper">
               <select id="selectCategory" value={prato.category}>
-                {category.map(categorias => (
-                  <option value={prato.categorias} key={prato.categorias}>{categorias}</option>
+                {category.map((categorias, index) => (
+                  <option key={index} value={prato.categorias}>{categorias}</option>
                 ))
                 }
               </select>
@@ -99,11 +124,18 @@ export function EditPrato() {
               {prato.ingredients?.map((ingrediente, index) => (
                 <NewIngredient
                   key={index}
-                  value={ingrediente.name}
+                  value={capitalizeFirstLetter(ingrediente.name)}
                   title={ingrediente.name}
+                  onClick={() => removeIngrediente(ingrediente)}
                 />
               ))}
-              <NewIngredient isNew placeholder="Adicionar" />
+              <NewIngredient
+                isNew
+                placeholder="Adicionar"
+                value={novoIngrediente ?? ""}
+                onChange={e => setNovoIngrediente(e.target.value)}
+                onClick={handleAddIngrediente}
+              />
             </section>
           </div>
 
