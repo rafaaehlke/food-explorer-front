@@ -15,8 +15,14 @@ export function EditPrato() {
   const { id } = useParams();
 
   //renderiza todos os dados do prato
-  const [prato, setPrato] = useState("");
-  const [novoIngrediente, setNovoIngrediente] = useState("");
+  const [prato, setPrato] = useState({
+    name: '',
+    description: '',
+    category: '',
+    price: '',
+    ingredients: []
+  });
+  const [novoIngrediente, setNovoIngrediente] = useState();
   const [category, setCategory] = useState(["hamburguer", "porcoes", "drinks"]);
 
 
@@ -25,6 +31,15 @@ export function EditPrato() {
   function voltarMenu() {
     navigate("/");
   };
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    console.log("Alterando:", name, "->", value);
+    setPrato(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
 
   function handleAddIngrediente() {
 
@@ -96,8 +111,10 @@ export function EditPrato() {
             <input
               id="dishName"
               type="text"
+              name="name"
               placeholder={prato.name}
-              value={prato.name}
+              value={prato.name || ""}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -105,9 +122,15 @@ export function EditPrato() {
           <div className="category-wrapper">
             <span id="category">Categoria</span>
             <div className="input-wrapper">
-              <select id="selectCategory" value={prato.category}>
+
+              <select
+                id="selectCategory"
+                name="category"
+                value={prato.category}
+                onChange={handleInputChange}
+              >
                 {category.map((categorias, index) => (
-                  <option key={index} value={prato.categorias}>{categorias}</option>
+                  <option key={index} value={categorias}>{categorias}</option>
                 ))
                 }
               </select>
@@ -146,6 +169,8 @@ export function EditPrato() {
               id="price"
               placeholder={prato.price}
               value={prato.price}
+              onChange={handleInputChange}
+
             />
           </div>
         </div>
@@ -154,8 +179,10 @@ export function EditPrato() {
         <span id="description">Descrição</span>
         <textarea
           className="description"
+          name="description"
           placeholder={prato.description}
           value={prato.description}
+          onChange={handleInputChange}
         />
 
         <div className="buttons">
