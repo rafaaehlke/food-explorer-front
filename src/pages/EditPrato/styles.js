@@ -121,9 +121,10 @@ span {
   
   border: none;
   border-radius: .8rem;
+  
+  color: ${({ theme }) => theme.COLORS.LIGHT_500};
   background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
-  color: ${({ theme }) => theme.COLORS.LIGHT_500};
 }
 
 .input-wrapper select {
@@ -141,7 +142,8 @@ span {
 
   padding: 1.6rem 1.6rem;
 
-  color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    color: ${({ theme }) => theme.COLORS.LIGHT_500};
+
   font-size: 1.4rem;
 }
 
@@ -157,6 +159,7 @@ span {
 
 #price {
   border-radius: .8rem;
+  color: ${({ theme }) => theme.COLORS.LIGHT_500};
   background-color: ${({ theme }) => theme.COLORS.DARK_800};
 }
 
@@ -168,7 +171,7 @@ span {
   height: 17.2rem;
   padding: 1.4rem;
   
-  
+  color: ${({ theme }) => theme.COLORS.LIGHT_500};
   background-color: ${({ theme }) => theme.COLORS.DARK_800};
   border: none;
   border-radius: .8rem;
@@ -237,16 +240,15 @@ span {
 
  }
 
+ //componente
  .ingredientes {
-  height: 4.8rem;
-  align-items: center;
-  
+    align-items: center;
+    padding: 1.1rem 1.1rem;
  }
-
+// name
  #ingredientes {
   display: flex;
   flex-direction: column;
- 
  }
 
  .price-wrapper{
