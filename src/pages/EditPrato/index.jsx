@@ -16,6 +16,7 @@ export function EditPrato() {
 
   //renderiza todos os dados do prato
   const [prato, setPrato] = useState({
+    image: "",
     name: '',
     description: '',
     category: '',
@@ -24,6 +25,7 @@ export function EditPrato() {
   });
   const [novoIngrediente, setNovoIngrediente] = useState();
   const [category, setCategory] = useState(["hamburguer", "porcoes", "drinks"]);
+  const [newImage, setNewImage] = useState({ file: null, image: "" })
 
 
   const navigate = useNavigate();
@@ -32,15 +34,29 @@ export function EditPrato() {
     navigate("/");
   };
 
+  // Altera a imagem do prato
+  function handleImage(event) {
+    const file = event.target.files[0];
+
+    // se for selecionado, altera a imagem
+    if (file) {
+      setNewImage({
+        file: file,
+        image: file.name
+      })
+    }
+  }
+
+  // Editar inputs
   function handleInputChange(event) {
     const { name, value } = event.target;
-    console.log("Alterando:", name, "->", value);
     setPrato(prev => ({
       ...prev,
       [name]: value
     }))
   }
 
+  // Adicionar um novo ingrediente
   function handleAddIngrediente() {
 
     if (!novoIngrediente.trim()) {
@@ -55,6 +71,7 @@ export function EditPrato() {
     setNovoIngrediente("")
   };
 
+  // Remover um ingrediente
   function removeIngrediente(deleted) {
     setPrato(prev => ({
       ...prev,
@@ -62,6 +79,7 @@ export function EditPrato() {
     }));
   }
 
+  // Transformar a primeira letra do ingrediente em Maiuscula 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -96,11 +114,12 @@ export function EditPrato() {
             <span>Imagem do prato</span>
             <label htmlFor="pictureDish">
               <LuUpload />
-              selecione uma imagem
+              {newImage.image || prato.image}
               <input
                 type="file"
                 id="pictureDish"
                 title="Selecione uma imagem"
+                onChange={handleImage}
               />
             </label>
           </div>
@@ -167,6 +186,7 @@ export function EditPrato() {
             <span className="price">Preço</span>
             <Input
               id="price"
+              name="price"
               placeholder={prato.price}
               value={prato.price}
               onChange={handleInputChange}
