@@ -109,6 +109,7 @@ export function NewPrato() {
                 type="file"
                 id="pictureDish"
                 onChange={handleAddImage}
+                required
               />
             </label>
           </div>
@@ -167,6 +168,7 @@ export function NewPrato() {
               id="price"
               placeholder="R$ 40,00"
               onChange={e => setPrice(e.target.value)}
+              required
             />
           </div>
         </div>
@@ -177,6 +179,7 @@ export function NewPrato() {
           className="description"
           placeholder="Digite a descrição do seu produto!"
           onChange={e => setDescription(e.target.value)}
+          required
         />
 
         <div className="buttons">
