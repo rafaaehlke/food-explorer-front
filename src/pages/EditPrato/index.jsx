@@ -84,6 +84,38 @@ export function EditPrato() {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
+  // Atualiza os dados do Formulário
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData();
+
+    // Só adiciona os campos que realmente foram modificados
+    if (prato.name) formData.append("name", prato.name);
+    if (prato.category) formData.append("category", prato.category);
+    if (prato.price) formData.append("price", prato.price);
+    if (prato.description) formData.append("description", prato.description);
+
+    if (newImage.file) {
+      formData.append("image", newImage.file);
+    }
+
+    try {
+      await api.patch(`/dishes/${id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      alert("Prato atualizado com sucesso!");
+      navigate("/");
+
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao atualizar prato");
+    }
+  }
+
+
   // Retorna os dados do prato.
   useEffect(() => {
     api.get(`/dishes/${id}`)
@@ -207,7 +239,12 @@ export function EditPrato() {
 
         <div className="buttons">
           <Button className="delete" title="Excluir Prato" />
-          <Button className="save" title="Salvar Alterações" />
+          <Button
+            className="save"
+            type="submit"
+            title="Salvar Alterações"
+            onClick={handleSubmit}
+          />
         </div>
       </Form>
 
