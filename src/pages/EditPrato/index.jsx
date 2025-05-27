@@ -90,17 +90,17 @@ export function EditPrato() {
     const formData = new FormData();
 
     // Só adiciona os campos que realmente foram modificados
-    if (prato.name) formData.append("name", prato.name);
-    if (prato.category) formData.append("category", prato.category);
-    if (prato.price) formData.append("price", prato.price);
-    if (prato.description) formData.append("description", prato.description);
+    if (prato.name) formData.set("name", prato.name);
+    if (prato.category) formData.set("category", prato.category);
+    if (prato.price) formData.set("price", prato.price);
+    if (prato.description) formData.set("description", prato.description);
 
     if (NewIngredient) {
       prato.ingredients.forEach(ingrediente => {
         formData.append("ingredients", ingrediente.name)
       })
     }
-    
+
     if (newImage.file) {
       formData.append("image", newImage.file);
     }
