@@ -23,10 +23,10 @@ export function EditPrato() {
     price: '',
     ingredients: []
   });
+  console.log(prato)
   const [novoIngrediente, setNovoIngrediente] = useState();
   const [category, setCategory] = useState(["hamburguer", "porcoes", "drinks"]);
   const [newImage, setNewImage] = useState({ file: null, image: "" })
-
 
   const navigate = useNavigate();
 
@@ -95,6 +95,12 @@ export function EditPrato() {
     if (prato.price) formData.append("price", prato.price);
     if (prato.description) formData.append("description", prato.description);
 
+    if (NewIngredient) {
+      prato.ingredients.forEach(ingrediente => {
+        formData.append("ingredients", ingrediente.name)
+      })
+    }
+    
     if (newImage.file) {
       formData.append("image", newImage.file);
     }
