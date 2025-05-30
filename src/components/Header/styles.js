@@ -70,6 +70,9 @@ ul {
   border-radius: .8rem;
   padding: .8rem .8rem; 
 
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) => theme.COLORS.LIGHT_400} ${({ theme }) => theme.COLORS.DARK_1000};
+
 }
 
 li {
