@@ -51,6 +51,30 @@ aside {
 // Input
 .search {
   display: none;
+  position: relative;
+  color: ${({ theme }) => theme.COLORS.LIGHT_400};
+}
+
+ul {
+  position: absolute;
+  list-style: none;
+  top: 105%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  background-color: #192227;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: .8rem;
+  padding: .8rem .8rem; 
+
+}
+
+li {
+  padding-bottom: 10px;
+  cursor: pointer;
 }
 
   
