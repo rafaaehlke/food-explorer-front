@@ -30,7 +30,12 @@ export const Container = styled.div`
   span {
     font-weight: 400;
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
-    padding-bottom: .8rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .buttons {
+    margin-top: 1.4rem;
   }
 
      @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
@@ -58,7 +63,7 @@ export const Form = styled.div`
   margin-left: 6.5rem;
   margin-right: 4.7rem; 
 
-  #Login {
+  #login {
     background-color: ${({theme}) => theme.COLORS.TOMATO_100};
     display: flex;
     justify-content: center;
@@ -73,10 +78,9 @@ export const Form = styled.div`
      
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
     border-radius: 1.6rem;
-    
     margin-top: 14.2rem;
     margin-right: 10.8rem;
-    
+        
     padding-left: 6.4rem;
     padding-right: 6.4rem;
     padding-bottom: 6.4rem;
@@ -84,8 +88,12 @@ export const Form = styled.div`
      #titleForm {
       display: block;
       width: 34.8rem;
-      margin: 6.4rem 6.4rem 3.2rem 6.4rem;
+      margin: 6.4rem 6.4rem 3.2rem 12.4rem;
       text-align: center;
+    }
+
+    span {
+    padding-top: 3.2rem;
     }
 
     #signIn {
@@ -93,11 +101,12 @@ export const Form = styled.div`
       border-radius: .5rem;
     }
     
-    h1 {
-      font-family: Poppins;
-      font-size: 3.2rem;
-      font-weight: 500;
-     }
+    .buttons {
+      display: flex;
+      margin-top: 3.2rem;
+      gap: 10px 10px;
+    }
+   
   }
 
   // Ipad screen

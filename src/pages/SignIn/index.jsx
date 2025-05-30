@@ -50,8 +50,11 @@ export function SignIn() {
         <Input id="pass" type="password" placeholder="Mínimo 6 caracteres" 
         onChange={e => setPassword(e.target.value)}/>
 
-        <Button id="Login" title="Entrar" onClick={handleSignIn} />
+        <div className="buttons">
+
+        <Button id="login" title="Entrar" onClick={handleSignIn} />
         <Button id="createAccount" title="Criar uma conta" onClick={buttonRegister} />
+        </div>
 
       </Form>
 
