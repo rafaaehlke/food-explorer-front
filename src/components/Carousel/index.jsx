@@ -30,11 +30,21 @@ export function Carousel({ dishes = [] }) {
         navigation
       >
         {dishes.map(dishe => (
-          <SwiperSlide className="Carousel" key={dishe.id} onClick={() => navigate(`/prato/${dishe.id}`)}>
-            <img className="image" src={`${imageUrl}${dishe.image}`} alt={dishe.name} />
+          <SwiperSlide className="Carousel" key={dishe.id} >
+            <img className="image"
+              src={`${imageUrl}${dishe.image}`}
+              alt={dishe.name}
+              onClick={() => navigate(`/prato/${dishe.id}`)}
+            />
 
             <p className="title">{dishe.name}</p>
-            <span className="description">{dishe.description}</span>
+
+            <span className="description"
+              onClick={() => navigate(`/prato/${dishe.id}`)}
+            >
+              {dishe.description}
+            </span>
+            
             <span className="price">R$ {dishe.price}</span>
 
             <div className="botoes">
