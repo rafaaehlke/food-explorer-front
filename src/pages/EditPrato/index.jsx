@@ -120,6 +120,15 @@ export function EditPrato() {
     }
   }
 
+  async function deleteDish() {
+
+    const confirm = window.confirm("Deseja remover este prato?")
+
+    if (confirm) {
+      await api.delete(`/dishes/${id}`)
+      voltarMenu()
+    }
+  }
 
   // Retorna os dados do prato.
   useEffect(() => {
@@ -243,7 +252,11 @@ export function EditPrato() {
         />
 
         <div className="buttons">
-          <Button className="delete" title="Excluir Prato" />
+          <Button
+            className="delete"
+            title="Excluir Prato"
+            onClick={deleteDish}
+          />
           <Button
             className="save"
             type="submit"
