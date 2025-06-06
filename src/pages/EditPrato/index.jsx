@@ -19,7 +19,7 @@ export function EditPrato() {
     image: "",
     name: '',
     description: '',
-    category: '',
+    category: 'hamburguer',
     price: '',
     ingredients: []
   });
@@ -86,6 +86,7 @@ export function EditPrato() {
   // Atualiza os dados do Formulário
   async function handleSubmit(event) {
     event.preventDefault();
+
     const formData = new FormData();
 
     // Só adiciona os campos que realmente foram modificados
@@ -116,17 +117,25 @@ export function EditPrato() {
 
     } catch (error) {
       console.error(error);
-      alert("Erro ao atualizar prato");
+      alert( "Erro ao atualizar prato", error);
     }
   }
 
-  async function deleteDish() {
+  async function deleteDish(e) {
+    e.preventDefault()
 
     const confirm = window.confirm("Deseja remover este prato?")
 
     if (confirm) {
-      await api.delete(`/dishes/${id}`)
-      voltarMenu()
+      try {
+        const response = await api.delete(`/dishes/${id}`);
+        alert(response.data.message)
+        voltarMenu()
+
+      } catch (error) {
+        console.error("Erro ao deletar o prato", error)
+        alert("Erro ao deletar Prato.")
+      }
     }
   }
 
@@ -191,11 +200,16 @@ export function EditPrato() {
               <select
                 id="selectCategory"
                 name="category"
-                value={prato.category}
+                value={prato.category || "hamburguer"}
                 onChange={handleInputChange}
               >
                 {category.map((categorias, index) => (
-                  <option key={index} value={categorias}>{categorias}</option>
+                  <option
+                    key={index}
+                    value={categorias}
+                  >
+                    {categorias}
+                  </option>
                 ))
                 }
               </select>
@@ -234,7 +248,7 @@ export function EditPrato() {
               id="price"
               name="price"
               placeholder={prato.price}
-              value={prato.price}
+              value={prato.price || ""}
               onChange={handleInputChange}
 
             />
@@ -247,7 +261,7 @@ export function EditPrato() {
           className="description"
           name="description"
           placeholder={prato.description}
-          value={prato.description}
+          value={prato.description || ""}
           onChange={handleInputChange}
         />
 
