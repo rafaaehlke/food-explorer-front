@@ -60,7 +60,8 @@ export function NewPrato() {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault()
 
     const formData = new FormData();
     formData.append("image", image);
@@ -70,10 +71,10 @@ export function NewPrato() {
     formData.append("description", description);
 
     ingredientes
-    .filter(ingrediente => ingrediente.trim() !== "")
-    .forEach(ingrediente => {
-      formData.append("ingredients", ingrediente);
-    })
+      .filter(ingrediente => ingrediente.trim() !== "")
+      .forEach(ingrediente => {
+        formData.append("ingredients", ingrediente);
+      })
 
     try {
       const response = await api.post("/dishes", formData, {
@@ -82,8 +83,10 @@ export function NewPrato() {
         },
       })
       alert(response.data.message);
+      voltarMenu()
     } catch (error) {
       console.error("Erro ao enviar dados:", error);
+      alert("Erro ao criar o prato.")
     }
 
   };
@@ -173,6 +176,7 @@ export function NewPrato() {
             <span className="price">Preço</span>
             <Input
               id="price"
+              type="number"
               placeholder="R$ 40,00"
               onChange={e => setPrice(e.target.value)}
               required
