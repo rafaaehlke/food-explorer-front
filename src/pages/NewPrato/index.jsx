@@ -20,7 +20,7 @@ export function NewPrato() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
-  const [ingredientes, setIngredientes] = useState([""]);
+  const [ingredientes, setIngredientes] = useState([]);
   const [novoIngrediente, setNovoIngrediente] = useState("");
 
   const navigate = useNavigate();
@@ -41,13 +41,18 @@ export function NewPrato() {
 
   //OK
   function handleAddIngrediente() {
-    setIngredientes(estadoAnterior => [...estadoAnterior, novoIngrediente]);
-    setNovoIngrediente()
+    if (!novoIngrediente.trim()) {
+      alert("Favor digitar um ingrediente válido!");
+      return;
+    }
+
+    setIngredientes(prevState => [...prevState, novoIngrediente]);
+    setNovoIngrediente("")
   };
 
   //OK
   function handleRemoveIngrediente(deleted) {
-    setIngredientes(estadoAnterior => estadoAnterior.filter(ingredientes => ingredientes !== deleted));
+    setIngredientes(prevState => prevState.filter(ingredientes => ingredientes !== deleted));
   };
 
   // OK
@@ -64,7 +69,9 @@ export function NewPrato() {
     formData.append("price", price);
     formData.append("description", description);
 
-    ingredientes.forEach(ingrediente => {
+    ingredientes
+    .filter(ingrediente => ingrediente.trim() !== "")
+    .forEach(ingrediente => {
       formData.append("ingredients", ingrediente);
     })
 
